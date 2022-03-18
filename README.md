@@ -9,7 +9,7 @@ OONZACK worked with LGT Bank in Liechtenstein to create two Grafana dashboards f
 
 - [Download](https://github.com/onzack/grafana-dashboards/blob/main/Grafana/kubernetes/without-recording-rules/onzack-cluster-monitoring.json) ONZACK Cluster Monitoring Dashboard without recording rules
 - [Download](https://github.com/onzack/grafana-dashboards/blob/main/Grafana/kubernetes/with-recording-rules/onzack-cluster-monitoring.json) ONZACK Cluster Monitoring Dashboard with recording rules
-- [Download](https://github.com/onzack/grafana-dashboards/blob/main/Prometheus/recording-rules/%20onzack-cluster-monitoring-recording-rules.yaml) Prometheus Recording Rules for ONZACK Cluster Monitoring Dashboard
+- [Download](https://github.com/onzack/grafana-dashboards/blob/main/Prometheus/recording-rules/onzack-cluster-monitoring-recording-rules.yaml) Prometheus Recording Rules for ONZACK Cluster Monitoring Dashboard
 
 ### Namespace Monitoring
 ![ONZACK Namespace Monitoringt](https://github.com/onzack/grafana-dashboards/blob/main/Docs/onzack-namespace-monitoring.png)
