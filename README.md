@@ -1,8 +1,8 @@
 # Grafana Dashboards
-ONZACK Grafana Dashboards for Kubernetes, OpenShift and ohter systems.
+ONZACK Grafana Dashboards for Kubernetes, OpenShift and other systems.
 
 ## Kubernetes / OpenShift
-OONZACK worked with LGT Bank in Liechtenstein to create two Grafana dashboards for Kubernetes and OpenShift. LGT Bank and ONZAK have agreed to make the dashboards available to the Kubernetes and OpenShift community so that everyone can benefit from the dashboards. ONZACK will continue to maintain and develop the dashboards in the future. 
+ONZACK worked with LGT Bank in Liechtenstein to create two Grafana dashboards for Kubernetes and OpenShift. LGT Bank and ONZACK have agreed to make the dashboards available to the Kubernetes and OpenShift community so that everyone can benefit from the dashboards. ONZACK will continue to maintain and develop the dashboards in the future.
 
 ### Cluster Monitoring
 ![ONZACK Cluster Monitoringt](https://github.com/onzack/grafana-dashboards/blob/main/Docs/onzack-cluster-monitoring.png)
