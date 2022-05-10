@@ -1,59 +1,4 @@
 {
-  "__inputs": [
-    {
-      "name": "DS_PROMETHEUS",
-      "label": "prometheus",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "prometheus",
-      "pluginName": "Prometheus"
-    }
-  ],
-  "__elements": [],
-  "__requires": [
-    {
-      "type": "panel",
-      "id": "gauge",
-      "name": "Gauge",
-      "version": ""
-    },
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "8.3.6"
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "stat",
-      "name": "Stat",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "table",
-      "name": "Table",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "text",
-      "name": "Text",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "timeseries",
-      "name": "Time series",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -76,8 +21,8 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": null,
-  "iteration": 1652172644159,
+  "id": 15,
+  "iteration": 1652174536340,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -97,7 +42,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "-b3i3M17z"
       },
       "fieldConfig": {
         "defaults": {
@@ -151,7 +96,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "sum(kube_node_status_condition{condition!=\"Ready\", status!=\"false\"})\n+\nsum(kube_node_spec_unschedulable)\n+\nsum(kubelet_node_config_error)",
@@ -168,7 +113,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "-b3i3M17z"
       },
       "fieldConfig": {
         "defaults": {
@@ -246,7 +191,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "sum(kube_node_status_condition{condition!=\"Ready\", status!=\"false\"}) by (condition)",
@@ -258,7 +203,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": true,
           "expr": "sum(kube_node_spec_unschedulable)",
@@ -270,7 +215,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": true,
           "expr": "sum(kubelet_node_config_error)",
@@ -287,7 +232,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "-b3i3M17z"
       },
       "fieldConfig": {
         "defaults": {
@@ -365,7 +310,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": true,
           "expr": "sum(kube_node_info)",
@@ -377,7 +322,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "sum(kube_node_role) by (role)",
@@ -393,7 +338,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "-b3i3M17z"
       },
       "fieldConfig": {
         "defaults": {
@@ -448,7 +393,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "100\n/\n(\nsum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) kube_node_role{role=\"worker\"})\n-\navg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) kube_node_role{role=\"worker\"}) * $sparenodesfactor\n)\n*\nsum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"worker\"}))",
@@ -464,7 +409,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "-b3i3M17z"
       },
       "fieldConfig": {
         "defaults": {
@@ -519,7 +464,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "topk(1,\n  100\n  /\n  sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) by (node)\n  *\n  sum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)\n)",
@@ -536,7 +481,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "-b3i3M17z"
       },
       "fieldConfig": {
         "defaults": {
@@ -610,7 +555,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "sum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -625,7 +570,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "-b3i3M17z"
       },
       "fieldConfig": {
         "defaults": {
@@ -680,7 +625,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "100\n/\n(\n  sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"})\n  -\n  avg(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left() kube_node_role{role=\"$noderole\"})\n  * $sparenodesfactor\n)\n*\n(\n  sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))\n  -\n  sum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))\n)",
@@ -696,7 +641,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "-b3i3M17z"
       },
       "fieldConfig": {
         "defaults": {
@@ -751,7 +696,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "topk(1,\n  100\n  /\n  sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) by (node)\n  *\n  (\n  sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)\n  -\n  sum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)\n  )\n)",
@@ -767,7 +712,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "-b3i3M17z"
       },
       "fieldConfig": {
         "defaults": {
@@ -842,7 +787,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)\n-\nsum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -857,7 +802,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "-b3i3M17z"
       },
       "fieldConfig": {
         "defaults": {
@@ -905,7 +850,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "sum(rate(node_disk_read_bytes_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))",
@@ -921,7 +866,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "-b3i3M17z"
       },
       "fieldConfig": {
         "defaults": {
@@ -969,7 +914,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "sum(rate(node_disk_written_bytes_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))",
@@ -985,7 +930,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "-b3i3M17z"
       },
       "fieldConfig": {
         "defaults": {
@@ -1055,7 +1000,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "sum(rate(node_disk_read_bytes_total[5m]) * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -1067,7 +1012,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "sum(rate(node_disk_written_bytes_total[5m]) * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node) * -1",
@@ -1083,7 +1028,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "-b3i3M17z"
       },
       "fieldConfig": {
         "defaults": {
@@ -1131,7 +1076,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "sum(rate(node_network_receive_bytes_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))",
@@ -1147,7 +1092,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "-b3i3M17z"
       },
       "fieldConfig": {
         "defaults": {
@@ -1195,7 +1140,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "sum(rate(node_network_transmit_bytes_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))",
@@ -1211,7 +1156,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${DS_PROMETHEUS}"
+        "uid": "-b3i3M17z"
       },
       "fieldConfig": {
         "defaults": {
@@ -1287,7 +1232,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "sum(rate(node_network_receive_bytes_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -1298,7 +1243,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "exemplar": false,
           "expr": "sum(rate(node_network_transmit_bytes_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node) * -1",
@@ -1340,7 +1285,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1389,7 +1334,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(kube_node_role{role=\"$noderole\"})",
@@ -1404,7 +1349,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1453,7 +1398,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"})",
@@ -1468,7 +1413,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1517,7 +1462,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"})\n-\navg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() kube_node_role{role=\"$noderole\"}) * $sparenodesfactor",
@@ -1532,7 +1477,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1582,7 +1527,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"})",
@@ -1597,7 +1542,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1647,7 +1592,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "(sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"})\n-\navg(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left() kube_node_role{role=\"$noderole\"}) * $sparenodesfactor)",
@@ -1662,7 +1607,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1716,7 +1661,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() kube_node_role{role=\"$noderole\"}) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_requests{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -1732,7 +1677,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1786,7 +1731,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\n(\nsum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) kube_node_role{role=\"worker\"})\n-\navg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) kube_node_role{role=\"worker\"}) * $sparenodesfactor\n)\n*\nsum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"worker\"}))",
@@ -1802,7 +1747,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1856,7 +1801,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})\n*\nsum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))",
@@ -1873,7 +1818,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1923,7 +1868,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() kube_node_role{role=\"$noderole\"}) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_limits{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -1940,7 +1885,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -1994,7 +1939,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) - avg(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left() kube_node_role{role=\"$noderole\"}) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_requests{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -2010,7 +1955,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2064,7 +2009,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\n(\n  sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"})\n  -\n  avg(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left() kube_node_role{role=\"$noderole\"})\n  * $sparenodesfactor\n)\n*\n(\n  sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))\n  -\n  sum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))\n)",
@@ -2080,7 +2025,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2134,7 +2079,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})\n*\n(\n  sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))\n  -\n  sum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))\n)",
@@ -2151,7 +2096,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2201,7 +2146,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) - avg(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left() kube_node_role{role=\"$noderole\"}) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_limits{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -2217,7 +2162,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2266,7 +2211,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -2282,7 +2227,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2331,7 +2276,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) kube_node_role{role=\"$noderole\"})",
@@ -2346,7 +2291,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2396,7 +2341,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})\n-\nsum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) > 0",
@@ -2411,7 +2356,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2460,7 +2405,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -2476,7 +2421,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2526,7 +2471,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -2542,7 +2487,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2588,7 +2533,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left(role) kube_node_role{role=\"$noderole\"})",
@@ -2603,7 +2548,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2654,7 +2599,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})\n-\nsum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) > 0",
@@ -2669,7 +2614,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2719,7 +2664,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -2734,7 +2679,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2783,7 +2728,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -2799,7 +2744,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2848,7 +2793,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) kube_node_role{role=\"$noderole\"})",
@@ -2863,7 +2808,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2912,7 +2857,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})\n-\nsum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) kube_node_role{role=\"$noderole\"})",
@@ -2927,7 +2872,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -2976,7 +2921,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -2992,7 +2937,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -3042,7 +2987,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -3058,7 +3003,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -3104,7 +3049,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left(role) kube_node_role{role=\"$noderole\"})",
@@ -3119,7 +3064,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -3169,7 +3114,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})\n-\nsum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) > 0",
@@ -3184,7 +3129,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -3234,7 +3179,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -3249,7 +3194,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -3298,7 +3243,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -3314,7 +3259,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -3363,7 +3308,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))",
@@ -3378,7 +3323,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -3427,7 +3372,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -3443,7 +3388,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -3493,7 +3438,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -3509,7 +3454,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -3555,7 +3500,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))\n-\nsum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))",
@@ -3570,7 +3515,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -3620,7 +3565,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -3902,7 +3847,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) by (node)",
@@ -3916,7 +3861,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"}) by (node)",
@@ -3930,7 +3875,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -3944,7 +3889,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"}) by (node)\n*\nsum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -3958,7 +3903,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "avg(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -3972,7 +3917,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) by (node)\n*\navg(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -3986,7 +3931,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"}) by (node)",
@@ -4000,7 +3945,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_limits{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"}) by (node)\n*\nsum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -4034,7 +3979,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -4325,7 +4270,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) by (node)",
@@ -4339,7 +4284,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"}) by (node)",
@@ -4353,7 +4298,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)\n-\nsum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -4367,7 +4312,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"}) by (node)\n*\n(\n  sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)\n  -\n  sum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)\n)",
@@ -4381,7 +4326,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "avg(sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))) by (node)\n-\navg(sum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))) by (node)",
@@ -4395,7 +4340,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) by (node)\n*\navg(\n  sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"worker\"})) by (node)\n-\n  sum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"worker\"})) by (node)\n) by (node)",
@@ -4409,7 +4354,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"}) by (node)",
@@ -4423,7 +4368,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_limits{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"}) by (node)\n*\n(\n  sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)\n  -\n  sum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)\n)",
@@ -4530,7 +4475,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"}) by (namespace)\n-\nsum(rate(container_cpu_usage_seconds_total{container=\"\",pod!=\"\"}[5m]) * on(node) group_left() kube_node_role{role=\"$noderole\"}) by (namespace) > 0",
@@ -4619,7 +4564,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"}) by (namespace)\n-\nsum(container_memory_working_set_bytes{container=\"\",pod!=\"\"}* on(node) group_left() kube_node_role{role=\"$noderole\"}) by (namespace) > 0",
@@ -4648,7 +4593,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -4702,7 +4647,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() kube_node_role{role=\"$noderole\"}) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_requests{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -4718,7 +4663,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -4798,7 +4743,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_requests{resource=\"cpu\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -4809,7 +4754,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_requests{resource=\"cpu\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -4821,7 +4766,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_requests{resource=\"cpu\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -4837,7 +4782,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -4907,7 +4852,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "(sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)",
@@ -4918,7 +4863,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -4930,7 +4875,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -4946,7 +4891,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -5000,7 +4945,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) - avg(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left() kube_node_role{role=\"$noderole\"}) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_requests{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -5016,7 +4961,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -5096,7 +5041,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_requests{resource=\"memory\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -5107,7 +5052,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_requests{resource=\"memory\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -5119,7 +5064,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_requests{resource=\"memory\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -5135,7 +5080,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -5205,7 +5150,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "(sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)",
@@ -5217,7 +5162,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -5229,7 +5174,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -5245,7 +5190,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -5299,7 +5244,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\n(\nsum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) kube_node_role{role=\"worker\"})\n-\navg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) kube_node_role{role=\"worker\"}) * $sparenodesfactor\n)\n*\nsum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"worker\"}))",
@@ -5315,7 +5260,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -5395,7 +5340,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\n(\nsum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n-\navg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor\n)\n*\nsum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)))",
@@ -5406,7 +5351,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\n(\nsum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n-\navg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor\n)\n*\nsum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -5418,7 +5363,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\n(\nsum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n-\navg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor\n)\n*\nsum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -5434,7 +5379,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -5504,7 +5449,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "(sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)",
@@ -5515,7 +5460,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -5527,7 +5472,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -5539,7 +5484,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)))",
@@ -5555,7 +5500,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -5609,7 +5554,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\n(\n  sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"})\n  -\n  avg(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left() kube_node_role{role=\"$noderole\"})\n  * $sparenodesfactor\n)\n*\n(\n  sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))\n  -\n  sum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))\n)",
@@ -5625,7 +5570,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -5705,7 +5650,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\n(\n  sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n  -\n  avg(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n  * $sparenodesfactor\n)\n*\n(\n  sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)))\n  -\n  sum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)))\n)",
@@ -5716,7 +5661,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\n(\n  sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n  -\n  avg(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n  * $sparenodesfactor\n)\n*\nsum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -5728,7 +5673,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\n(\n  sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n  -\n  avg(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n  * $sparenodesfactor\n)\n*\nsum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -5744,7 +5689,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -5814,7 +5759,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "(sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)",
@@ -5826,7 +5771,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -5838,7 +5783,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (node)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -5850,7 +5795,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)))\n-\nsum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)))",
@@ -5866,7 +5811,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -5920,7 +5865,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})\n*\nsum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))",
@@ -5937,7 +5882,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -6016,7 +5961,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"cpu\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\nsum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)))",
@@ -6027,7 +5972,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"cpu\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\nsum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6039,7 +5984,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"cpu\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\nsum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6055,7 +6000,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -6125,7 +6070,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6136,7 +6081,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)))",
@@ -6148,7 +6093,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6160,7 +6105,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6176,7 +6121,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -6230,7 +6175,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})\n*\n(\n  sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))\n  -\n  sum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))\n)",
@@ -6247,7 +6192,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -6326,7 +6271,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"memory\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\n(\n  sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)))\n  -\n  sum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)))\n)",
@@ -6337,7 +6282,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"memory\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\nsum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6349,7 +6294,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"memory\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\nsum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6365,7 +6310,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -6435,7 +6380,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6446,7 +6391,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)))\n-\nsum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)))",
@@ -6458,7 +6403,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6470,7 +6415,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6486,7 +6431,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -6536,7 +6481,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})\n*\n(sum(kube_pod_container_resource_requests{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})\n-\nsum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\"}[5m]) * on(node) group_left(role) kube_node_role{role=\"$noderole\"}))",
@@ -6553,7 +6498,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -6628,7 +6573,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"cpu\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\n(sum(kube_pod_container_resource_requests{resource=\"cpu\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n-\nsum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)))",
@@ -6640,7 +6585,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"cpu\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\n(sum(kube_pod_container_resource_requests{resource=\"cpu\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n-\nsum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)))",
@@ -6656,7 +6601,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -6726,7 +6671,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n-\nsum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6738,7 +6683,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n-\nsum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6750,7 +6695,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6762,7 +6707,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6774,7 +6719,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6785,7 +6730,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"cpu\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -6801,7 +6746,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -6852,7 +6797,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})\n*\n(\n  sum(kube_pod_container_resource_requests{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})\n  -\n  sum(container_memory_working_set_bytes{container=\"\", pod!=\"\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left(role) kube_node_role{role=\"$noderole\"})\n)",
@@ -6869,7 +6814,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -6944,7 +6889,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"memory\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\n(\n  sum(kube_pod_container_resource_requests{resource=\"memory\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n  -\n  sum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n)",
@@ -6956,7 +6901,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\nsum(kube_pod_container_resource_requests{resource=\"memory\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\n(\n  sum(kube_pod_container_resource_requests{resource=\"memory\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n  -\n  sum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n)",
@@ -6972,7 +6917,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -7042,7 +6987,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n-\nsum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7054,7 +6999,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n-\nsum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7066,7 +7011,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7078,7 +7023,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7090,7 +7035,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7101,7 +7046,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_requests{resource=\"memory\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7117,7 +7062,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -7167,7 +7112,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() kube_node_role{role=\"$noderole\"}) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_limits{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -7184,7 +7129,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -7259,7 +7204,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_limits{resource=\"cpu\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7271,7 +7216,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_limits{resource=\"cpu\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7283,7 +7228,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_limits{resource=\"cpu\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7299,7 +7244,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -7369,7 +7314,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7380,7 +7325,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7392,7 +7337,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7408,7 +7353,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -7458,7 +7403,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) kube_node_role{role=\"$noderole\"}) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() kube_node_role{role=\"$noderole\"}) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_limits{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})",
@@ -7475,7 +7420,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -7550,7 +7495,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_limits{resource=\"memory\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7562,7 +7507,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_limits{resource=\"memory\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7574,7 +7519,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\n(sum(kube_node_status_allocatable{resource=\"memory\"} * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node)) - avg(kube_node_status_allocatable{resource=\"cpu\"} * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node)) * $sparenodesfactor)\n*\nsum(kube_pod_container_resource_limits{resource=\"memory\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7590,7 +7535,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -7660,7 +7605,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7672,7 +7617,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7684,7 +7629,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7699,7 +7644,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -7753,7 +7698,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_limits{resource=\"cpu\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})\n*\nsum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\"}[5m]) * on(node) group_left(role) kube_node_role{role=\"$noderole\"})",
@@ -7770,7 +7715,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -7849,7 +7794,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\nsum(kube_pod_container_resource_limits{resource=\"cpu\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\nsum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7861,7 +7806,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\nsum(kube_pod_container_resource_limits{resource=\"cpu\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\nsum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7873,7 +7818,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "100\n/\nsum(kube_pod_container_resource_limits{resource=\"cpu\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\nsum(rate(container_cpu_usage_seconds_total{container=\"\",}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7889,7 +7834,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -7959,7 +7904,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7971,7 +7916,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7983,7 +7928,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -7995,7 +7940,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -8007,7 +7952,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(rate(container_cpu_usage_seconds_total{container=\"\", pod!=\"\"}[5m]) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -8019,7 +7964,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -8034,7 +7979,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "${datasource}"
           },
           "fieldConfig": {
             "defaults": {
@@ -8088,7 +8033,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_limits{resource=\"memory\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left() kube_node_role{role=\"$noderole\"})\n*\nsum(container_memory_working_set_bytes{container=\"\", pod!=\"\"} * on(pod, namespace) group_left() (kube_pod_status_phase{phase=\"Running\"}==1) * on(node) group_left(role) kube_node_role{role=\"$noderole\"})",
@@ -8105,7 +8050,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -8184,7 +8129,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_limits{resource=\"memory\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\nsum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -8196,7 +8141,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_limits{resource=\"memory\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\nsum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -8208,7 +8153,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(kube_pod_container_resource_limits{resource=\"memory\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))\n*\nsum(container_memory_working_set_bytes{container=\"\", pod!=\"\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -8224,7 +8169,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -8294,7 +8239,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -8306,7 +8251,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\", namespace!~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -8318,7 +8263,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(container_memory_working_set_bytes{container=\"\", pod!=\"\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -8330,7 +8275,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"memory\", namespace=~\"kube-.*|cattle-.*openshift-.*\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -8342,7 +8287,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": true,
               "expr": "sum(container_memory_working_set_bytes{container=\"\", pod!=\"\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -8354,7 +8299,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(kube_pod_container_resource_limits{resource=\"cpu\"} * on(pod, namespace) group_left() (topk(1,kube_pod_status_phase{phase=\"Running\"}==1) by (pod)) * on(node) group_left() topk(1,kube_node_role{role=\"$noderole\"}) by (node))",
@@ -8383,7 +8328,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -8464,7 +8409,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -8479,7 +8424,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -8566,7 +8511,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\ncount((node_cpu_seconds_total{mode=\"idle\"}) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)\n*\nsum(rate(node_cpu_seconds_total{mode!=\"idle\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -8595,7 +8540,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -8675,7 +8620,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)\n-\nsum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -8690,7 +8635,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -8770,7 +8715,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\nsum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node ))) by (node)\n*\n(\n sum(node_memory_MemTotal_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node ))) by (node)\n -\n sum(node_memory_MemAvailable_bytes{job=\"node-exporter\"} * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node ))) by (node)\n)",
@@ -8799,7 +8744,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -8962,7 +8907,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_disk_read_bytes_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -8976,7 +8921,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_disk_written_bytes_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -8990,7 +8935,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_disk_reads_completed_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -9004,7 +8949,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_disk_writes_completed_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -9018,7 +8963,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_disk_read_time_seconds_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)\n/\nsum(rate(node_disk_reads_completed_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -9032,7 +8977,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_disk_write_time_seconds_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)\n/\nsum(rate(node_disk_writes_completed_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -9066,7 +9011,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -9147,7 +9092,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "max((node_filesystem_size_bytes{mountpoint!~\"/run.*\"}) * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (mountpoint,node)\n-\nmax((node_filesystem_avail_bytes{mountpoint!~\"/run.*\"}) * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (mountpoint,node)",
@@ -9163,7 +9108,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -9249,7 +9194,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\nmax((node_filesystem_size_bytes{mountpoint!~\"/run.*\"}) * on(instance,pod) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (mountpoint,node)\n*\n(\n  max((node_filesystem_size_bytes{mountpoint!~\"/run.*\"}) * on(instance,pod) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (mountpoint,node)\n  -\n  max((node_filesystem_avail_bytes{mountpoint!~\"/run.*\"}) * on(instance,pod) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (mountpoint,node)\n)",
@@ -9265,7 +9210,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -9352,7 +9297,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "100\n/\ncount((node_cpu_seconds_total{mode=\"idle\"}) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)\n*\nsum(rate(node_cpu_seconds_total{mode=\"iowait\"}[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -9367,7 +9312,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -9446,7 +9391,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_disk_read_bytes_total[5m]) * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -9462,7 +9407,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -9541,7 +9486,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_disk_reads_completed_total[5m]) * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -9557,7 +9502,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -9635,7 +9580,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_disk_read_time_seconds_total[5m]) * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)\n/\nsum(rate(node_disk_reads_completed_total[5m]) * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -9651,7 +9596,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -9730,7 +9675,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_disk_written_bytes_total[5m]) * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -9746,7 +9691,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -9824,7 +9769,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_disk_writes_completed_total[5m]) * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -9840,7 +9785,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -9918,7 +9863,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_disk_write_time_seconds_total[5m]) * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)\n/\nsum(rate(node_disk_writes_completed_total[5m]) * on(instance) group_left(node) (label_replace(topk(1,node_uname_info) by (instance), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -9948,7 +9893,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -10103,7 +10048,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_network_receive_bytes_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -10117,7 +10062,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_network_transmit_bytes_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -10131,7 +10076,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_network_receive_packets_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -10145,7 +10090,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_network_transmit_packets_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -10159,7 +10104,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_network_receive_drop_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -10173,7 +10118,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_network_transmit_drop_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) kube_node_role{role=\"$noderole\"})) by (node)",
@@ -10207,7 +10152,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -10286,7 +10231,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_network_receive_bytes_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -10301,7 +10246,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -10380,7 +10325,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_network_receive_packets_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -10395,7 +10340,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -10474,7 +10419,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_network_transmit_bytes_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -10489,7 +10434,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -10568,7 +10513,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_network_transmit_packets_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -10583,7 +10528,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -10662,7 +10607,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_network_receive_drop_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -10677,7 +10622,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${DS_PROMETHEUS}"
+            "uid": "-b3i3M17z"
           },
           "fieldConfig": {
             "defaults": {
@@ -10756,7 +10701,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${DS_PROMETHEUS}"
+                "uid": "-b3i3M17z"
               },
               "exemplar": false,
               "expr": "sum(rate(node_network_transmit_drop_total[5m]) * on(instance) group_left(node) (label_replace((node_uname_info), \"node\", \"$1\", \"nodename\", \"(.*)\") * on(node) group_left(role) topk(1,kube_node_role{role=\"$noderole\"}) by (node))) by (node)",
@@ -10798,10 +10743,14 @@
         "type": "datasource"
       },
       {
-        "current": {},
+        "current": {
+          "selected": false,
+          "text": "worker",
+          "value": "worker"
+        },
         "datasource": {
           "type": "prometheus",
-          "uid": "${DS_PROMETHEUS}"
+          "uid": "${datasource}"
         },
         "definition": "label_values(kube_node_role,role)",
         "hide": 0,
@@ -10867,7 +10816,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "ONZACK - Cluster Monitoring",
-  "uid": "EO2URUb7zasdfasdf",
+  "uid": "EO2URUb7z",
   "version": 77,
   "weekStart": ""
 }
