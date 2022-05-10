@@ -9257,7 +9257,7 @@
               "refId": "A"
             }
           ],
-          "title": "CPU Cores Usage by Node (absolut)",
+          "title": "CPU Cores Usage by Node (absolute)",
           "type": "timeseries"
         },
         {
@@ -9472,7 +9472,7 @@
               "refId": "A"
             }
           ],
-          "title": "Memory Usage by Node (absolut)",
+          "title": "Memory Usage by Node (absolute)",
           "type": "timeseries"
         },
         {
