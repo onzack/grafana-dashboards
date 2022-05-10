@@ -1414,7 +1414,7 @@
           "refId": "A"
         }
       ],
-      "title": "Network Reveive",
+      "title": "Network Receive",
       "type": "stat"
     },
     {
@@ -10588,7 +10588,7 @@
               "refId": "A"
             }
           ],
-          "title": "Reveive Network Bandwith by Node",
+          "title": "Receive Network Bandwith by Node",
           "type": "timeseries"
         },
         {
@@ -10784,7 +10784,7 @@
               "refId": "A"
             }
           ],
-          "title": "Reveive Network Packets by Node",
+          "title": "Receive Network Packets by Node",
           "type": "timeseries"
         },
         {
@@ -10978,7 +10978,7 @@
               "refId": "A"
             }
           ],
-          "title": "Reveive Network Packets Dropped by Node",
+          "title": "Receive Network Packets Dropped by Node",
           "type": "timeseries"
         },
         {
