@@ -1431,7 +1431,7 @@
           "refId": "A"
         }
       ],
-      "title": "Network Bandwidth Reveive",
+      "title": "Network Bandwidth Receive",
       "type": "stat"
     },
     {
@@ -7071,7 +7071,7 @@
               "refId": "A"
             }
           ],
-          "title": "Reveive Network Bandwith by Pod",
+          "title": "Receive Network Bandwith by Pod",
           "type": "timeseries"
         },
         {
@@ -7265,7 +7265,7 @@
               "refId": "A"
             }
           ],
-          "title": "Reveive Network Packets by Pod",
+          "title": "Receive Network Packets by Pod",
           "type": "timeseries"
         },
         {
@@ -7459,7 +7459,7 @@
               "refId": "A"
             }
           ],
-          "title": "Reveive Network Packets Dropped by Pod",
+          "title": "Receive Network Packets Dropped by Pod",
           "type": "timeseries"
         },
         {
