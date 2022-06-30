@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -21,13 +24,17 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 15,
-  "iteration": 1652174536340,
+  "id": 3,
+  "iteration": 1656595011732,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -91,7 +98,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -99,7 +106,7 @@
             "uid": "${datasource}"
           },
           "exemplar": false,
-          "expr": "sum(kube_node_status_condition{condition!=\"Ready\", status!=\"false\"})\n+\nsum(kube_node_spec_unschedulable)\n+\nsum(kubelet_node_config_error)",
+          "expr": "sum(kube_node_status_condition{condition!=\"Ready\", status!=\"false\"})\n+\nsum(kube_node_spec_unschedulable)",
           "hide": false,
           "instant": true,
           "interval": "",
@@ -184,7 +191,8 @@
           "sortDesc": true
         },
         "tooltip": {
-          "mode": "multi"
+          "mode": "multi",
+          "sort": "none"
         }
       },
       "targets": [
@@ -211,18 +219,6 @@
           "interval": "",
           "legendFormat": "Unschedulable",
           "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "exemplar": true,
-          "expr": "sum(kubelet_node_config_error)",
-          "hide": false,
-          "interval": "",
-          "legendFormat": "KubeletConfigErrors",
-          "refId": "C"
         }
       ],
       "timeFrom": "24h",
@@ -303,7 +299,8 @@
           "placement": "right"
         },
         "tooltip": {
-          "mode": "multi"
+          "mode": "multi",
+          "sort": "none"
         }
       },
       "targets": [
@@ -388,7 +385,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -459,7 +456,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -548,7 +545,8 @@
           "placement": "right"
         },
         "tooltip": {
-          "mode": "multi"
+          "mode": "multi",
+          "sort": "none"
         }
       },
       "targets": [
@@ -620,7 +618,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -691,7 +689,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -780,7 +778,8 @@
           "placement": "right"
         },
         "tooltip": {
-          "mode": "multi"
+          "mode": "multi",
+          "sort": "none"
         }
       },
       "targets": [
@@ -845,7 +844,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -909,7 +908,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -993,7 +992,8 @@
           "placement": "right"
         },
         "tooltip": {
-          "mode": "multi"
+          "mode": "multi",
+          "sort": "none"
         }
       },
       "targets": [
@@ -1071,7 +1071,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1135,7 +1135,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1225,7 +1225,8 @@
           "placement": "right"
         },
         "tooltip": {
-          "mode": "multi"
+          "mode": "multi",
+          "sort": "none"
         }
       },
       "targets": [
@@ -1258,6 +1259,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -3578,6 +3583,10 @@
           "type": "stat"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -4400,6 +4409,10 @@
           "type": "table"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -4488,6 +4501,10 @@
           "type": "timeseries"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -4582,6 +4599,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -8317,6 +8338,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -8529,6 +8554,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -8733,6 +8762,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -9882,6 +9915,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -10719,7 +10756,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 34,
+  "schemaVersion": 36,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -10817,6 +10854,6 @@
   "timezone": "",
   "title": "ONZACK - Cluster Monitoring",
   "uid": "EO2URUb7z",
-  "version": 77,
+  "version": 16,
   "weekStart": ""
 }

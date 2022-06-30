@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -22,8 +25,8 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 33,
-  "iteration": 1652184764442,
+  "id": 8,
+  "iteration": 1656594832462,
   "links": [
     {
       "asDropdown": false,
@@ -54,6 +57,10 @@
   "panels": [
     {
       "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -117,7 +124,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -125,7 +132,7 @@
             "uid": "${datasource}"
           },
           "exemplar": false,
-          "expr": "sum(kube_node_status_condition{condition!=\"Ready\", status!=\"false\"})\n+\nsum(kube_node_spec_unschedulable)\n+\nsum(kubelet_node_config_error)",
+          "expr": "sum(kube_node_status_condition{condition!=\"Ready\", status!=\"false\"})\n+\nsum(kube_node_spec_unschedulable)",
           "hide": false,
           "instant": true,
           "interval": "",
@@ -238,18 +245,6 @@
           "interval": "",
           "legendFormat": "Unschedulable",
           "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "exemplar": true,
-          "expr": "sum(kubelet_node_config_error)",
-          "hide": false,
-          "interval": "",
-          "legendFormat": "KubeletConfigErrors",
-          "refId": "C"
         }
       ],
       "timeFrom": "24h",
@@ -423,7 +418,7 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 8,
+        "w": 13,
         "x": 0,
         "y": 7
       },
@@ -522,8 +517,8 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 8,
-        "x": 8,
+        "w": 11,
+        "x": 13,
         "y": 7
       },
       "id": 214,
@@ -558,104 +553,6 @@
         }
       ],
       "title": "Nodes with unavailable Network",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "${datasource}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "axisSoftMax": 2,
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 10,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "normal"
-            },
-            "thresholdsStyle": {
-              "mode": "area"
-            }
-          },
-          "mappings": [],
-          "min": 0,
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 0.5
-              }
-            ]
-          },
-          "unit": "short"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 5,
-        "w": 8,
-        "x": 16,
-        "y": 7
-      },
-      "id": 210,
-      "options": {
-        "legend": {
-          "calcs": [
-            "max",
-            "last"
-          ],
-          "displayMode": "hidden",
-          "placement": "right",
-          "sortBy": "Max",
-          "sortDesc": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "${datasource}"
-          },
-          "exemplar": false,
-          "expr": "sum by (node) (kubelet_node_config_error * on(node) group_left() kube_node_role{role=\"$noderole\"})",
-          "hide": false,
-          "interval": "",
-          "legendFormat": "{{node}}",
-          "refId": "A"
-        }
-      ],
-      "title": "Nodes with Kubelet config errors",
       "type": "timeseries"
     },
     {
@@ -711,7 +608,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -783,7 +680,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -946,7 +843,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1017,7 +914,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1172,7 +1069,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1236,7 +1133,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1399,7 +1296,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1463,7 +1360,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.3",
       "targets": [
         {
           "datasource": {
@@ -1482,6 +1379,10 @@
       "type": "stat"
     },
     {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1583,6 +1484,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -5331,6 +5236,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -6422,6 +6331,10 @@
           "type": "timeseries"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -8037,6 +7950,10 @@
           "type": "gauge"
         },
         {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -9155,6 +9072,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -9369,6 +9290,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -9584,6 +9509,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -10485,6 +10414,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -11084,7 +11017,7 @@
     }
   ],
   "refresh": "5m",
-  "schemaVersion": 34,
+  "schemaVersion": 36,
   "style": "dark",
   "tags": [
     "kubernetes",
@@ -11097,7 +11030,7 @@
     "list": [
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "prometheus",
           "value": "prometheus"
         },
@@ -11116,7 +11049,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "worker",
           "value": "worker"
         },
@@ -11257,6 +11190,6 @@
   "timezone": "",
   "title": "Standard Cluster Monitoring",
   "uid": "std-cl-mon",
-  "version": 3,
+  "version": 14,
   "weekStart": ""
 }
