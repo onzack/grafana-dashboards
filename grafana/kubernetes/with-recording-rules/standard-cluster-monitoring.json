@@ -25,8 +25,8 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 8,
-  "iteration": 1656594832462,
+  "id": 23,
+  "iteration": 1656595373633,
   "links": [
     {
       "asDropdown": false,
@@ -124,7 +124,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "8.5.5",
       "targets": [
         {
           "datasource": {
@@ -418,7 +418,7 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 13,
+        "w": 12,
         "x": 0,
         "y": 7
       },
@@ -517,8 +517,8 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 11,
-        "x": 13,
+        "w": 12,
+        "x": 12,
         "y": 7
       },
       "id": 214,
@@ -608,7 +608,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "8.5.5",
       "targets": [
         {
           "datasource": {
@@ -680,7 +680,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "8.5.5",
       "targets": [
         {
           "datasource": {
@@ -843,7 +843,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "8.5.5",
       "targets": [
         {
           "datasource": {
@@ -914,7 +914,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "8.5.5",
       "targets": [
         {
           "datasource": {
@@ -1069,7 +1069,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "8.5.5",
       "targets": [
         {
           "datasource": {
@@ -1133,7 +1133,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "8.5.5",
       "targets": [
         {
           "datasource": {
@@ -1296,7 +1296,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "8.5.5",
       "targets": [
         {
           "datasource": {
@@ -1360,7 +1360,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "8.5.5",
       "targets": [
         {
           "datasource": {
@@ -11190,6 +11190,6 @@
   "timezone": "",
   "title": "Standard Cluster Monitoring",
   "uid": "std-cl-mon",
-  "version": 14,
+  "version": 5,
   "weekStart": ""
 }
