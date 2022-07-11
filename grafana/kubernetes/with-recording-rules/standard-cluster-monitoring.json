@@ -25,8 +25,8 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 23,
-  "iteration": 1656595373633,
+  "id": 24,
+  "iteration": 1657557024139,
   "links": [
     {
       "asDropdown": false,
@@ -39,18 +39,6 @@
       "tooltip": "",
       "type": "link",
       "url": "https://github.com/onzack/grafana-dashboards"
-    },
-    {
-      "asDropdown": false,
-      "icon": "external link",
-      "includeVars": false,
-      "keepTime": false,
-      "tags": [],
-      "targetBlank": true,
-      "title": "ONZACK AG",
-      "tooltip": "",
-      "type": "link",
-      "url": "https://www.onzack.com"
     }
   ],
   "liveNow": false,
@@ -124,7 +112,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.5",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -608,7 +596,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.5",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -680,7 +668,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.5",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -843,7 +831,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.5",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -914,7 +902,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.5",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -1069,7 +1057,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.5",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -1133,7 +1121,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.5",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -1296,7 +1284,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.5",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -1360,7 +1348,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.5",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -11159,26 +11147,6 @@
         "queryValue": "",
         "skipUrlSync": false,
         "type": "custom"
-      },
-      {
-        "current": {
-          "selected": true,
-          "text": "ONZACK AG and LGT",
-          "value": "ONZACK AG and LGT"
-        },
-        "hide": 0,
-        "label": "Authors",
-        "name": "authors",
-        "options": [
-          {
-            "selected": true,
-            "text": "ONZACK AG and LGT",
-            "value": "ONZACK AG and LGT"
-          }
-        ],
-        "query": "ONZACK AG and LGT",
-        "skipUrlSync": false,
-        "type": "textbox"
       }
     ]
   },
@@ -11190,6 +11158,6 @@
   "timezone": "",
   "title": "Standard Cluster Monitoring",
   "uid": "std-cl-mon",
-  "version": 5,
+  "version": 29,
   "weekStart": ""
 }

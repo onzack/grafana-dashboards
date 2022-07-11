@@ -3,7 +3,10 @@
     "list": [
       {
         "builtIn": 1,
-        "datasource": "-- Grafana --",
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
         "enable": true,
         "hide": true,
         "iconColor": "rgba(0, 211, 255, 1)",
@@ -22,8 +25,8 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 35,
-  "iteration": 1652184933628,
+  "id": 6,
+  "iteration": 1657557058446,
   "links": [
     {
       "asDropdown": false,
@@ -36,24 +39,16 @@
       "tooltip": "",
       "type": "link",
       "url": "https://github.com/onzack/grafana-dashboards"
-    },
-    {
-      "asDropdown": false,
-      "icon": "external link",
-      "includeVars": false,
-      "keepTime": false,
-      "tags": [],
-      "targetBlank": true,
-      "title": "ONZACK AG",
-      "tooltip": "",
-      "type": "link",
-      "url": "https://www.onzack.com"
     }
   ],
   "liveNow": false,
   "panels": [
     {
       "collapsed": false,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -117,7 +112,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -489,7 +484,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -560,7 +555,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -722,7 +717,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -793,7 +788,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -956,7 +951,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -1028,7 +1023,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -1183,7 +1178,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -1247,7 +1242,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -1416,7 +1411,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -1480,7 +1475,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.6",
+      "pluginVersion": "8.5.6",
       "targets": [
         {
           "datasource": {
@@ -1604,6 +1599,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2386,6 +2385,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -5834,6 +5837,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -6147,6 +6154,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -6360,6 +6371,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -6969,6 +6984,10 @@
     },
     {
       "collapsed": true,
+      "datasource": {
+        "type": "prometheus",
+        "uid": "P1809F7CD0C75ACF3"
+      },
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -7565,7 +7584,7 @@
     }
   ],
   "refresh": "5m",
-  "schemaVersion": 34,
+  "schemaVersion": 36,
   "style": "dark",
   "tags": [
     "kubernetes",
@@ -7620,26 +7639,6 @@
         "skipUrlSync": false,
         "sort": 1,
         "type": "query"
-      },
-      {
-        "current": {
-          "selected": true,
-          "text": "ONZACK AG and LGT",
-          "value": "ONZACK AG and LGT"
-        },
-        "hide": 0,
-        "label": "Authors",
-        "name": "authors",
-        "options": [
-          {
-            "selected": true,
-            "text": "ONZACK AG and LGT",
-            "value": "ONZACK AG and LGT"
-          }
-        ],
-        "query": "ONZACK AG and LGT",
-        "skipUrlSync": false,
-        "type": "textbox"
       }
     ]
   },
@@ -7651,6 +7650,6 @@
   "timezone": "",
   "title": "Standard Namespace Monitoring",
   "uid": "std-ns-mon",
-  "version": 1,
+  "version": 102,
   "weekStart": ""
 }
