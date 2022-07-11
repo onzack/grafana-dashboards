@@ -8,14 +8,14 @@ ONZACK worked with LGT Bank in Liechtenstein to create two Grafana dashboards fo
 ![ONZACK Cluster Monitoring](https://github.com/onzack/grafana-dashboards/blob/main/docs/onzack-cluster-monitoring.png)
 
 - [Download](https://github.com/onzack/grafana-dashboards/blob/main/grafana/kubernetes/without-recording-rules/onzack-cluster-monitoring.json) ONZACK Cluster Monitoring Dashboard without recording rules
-- [Download](https://github.com/onzack/grafana-dashboards/blob/main/grafana/kubernetes/with-recording-rules/onzack-cluster-monitoring.json) ONZACK Cluster Monitoring Dashboard with recording rules
+- [Download](https://github.com/onzack/grafana-dashboards/blob/main/grafana/kubernetes/with-recording-rules/standard-cluster-monitoring.json) ONZACK Cluster Monitoring Dashboard with recording rules
 - [Download](https://github.com/onzack/grafana-dashboards/blob/main/prometheus/recording-rules/onzack-cluster-monitoring-recording-rules.yaml) Prometheus Recording Rules for ONZACK Cluster Monitoring Dashboard
 
 ### Namespace Monitoring
 ![ONZACK Namespace Monitoring](https://github.com/onzack/grafana-dashboards/blob/main/docs/onzack-namespace-monitoring.png)
 
 - [Download](https://github.com/onzack/grafana-dashboards/blob/main/grafana/kubernetes/without-recording-rules/onzack-namespace-monitoring.json) ONZACK Namespace Monitoring Dashboard without recording rules
-- [Download](https://github.com/onzack/grafana-dashboards/blob/main/grafana/kubernetes/with-recording-rules/onzack-namespace-monitoring.json) ONZACK Namespace Monitoring Dashboard with recording rules
+- [Download](https://github.com/onzack/grafana-dashboards/blob/main/grafana/kubernetes/with-recording-rules/standard-namespace-monitoring.json) ONZACK Namespace Monitoring Dashboard with recording rules
 - [Download](https://github.com/onzack/grafana-dashboards/blob/main/prometheus/recording-rules/onzack-namespace-monitoring-recording-rules.yaml) Prometheus Recording Rules for ONZACK Namespace Monitoring Dashboard
 
 # Licence
