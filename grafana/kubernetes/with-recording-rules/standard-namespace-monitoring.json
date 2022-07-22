@@ -5509,7 +5509,7 @@
               "refId": "A"
             }
           ],
-          "title": "Memory Recommnded by VPA",
+          "title": "Memory Recommended by VPA",
           "transformations": [
             {
               "id": "organize",
