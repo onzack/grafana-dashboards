@@ -9801,7 +9801,7 @@
                 "uid": "${datasource}"
               },
               "exemplar": false,
-              "expr": "(sum(rate(node_cpu_seconds_total{mode=\"iowait\"}[5m])) by (instance) * on(instance) group_left(node) instance:kube_node_role{role=\"worker\"})\n/\n(count(node_cpu_seconds_total{mode=\"idle\"}) by (instance) * on(instance) group_left(node) instance:kube_node_role{role=\"worker\"})",
+              "expr": "(sum(rate(node_cpu_seconds_total{mode=\"iowait\"}[5m])) by (instance) * on(instance) group_left(node) instance:kube_node_role{role=\"$noderole\"})\n/\n(count(node_cpu_seconds_total{mode=\"idle\"}) by (instance) * on(instance) group_left(node) instance:kube_node_role{role=\"$noderole\"})",
               "hide": false,
               "interval": "",
               "legendFormat": "{{node}}",
