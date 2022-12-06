@@ -25,8 +25,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 24,
-  "iteration": 1657557024139,
+  "id": 23,
   "links": [
     {
       "asDropdown": false,
@@ -112,7 +111,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -142,6 +141,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -201,6 +202,7 @@
           ],
           "displayMode": "table",
           "placement": "right",
+          "showLegend": true,
           "sortBy": "Max",
           "sortDesc": true
         },
@@ -250,6 +252,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -310,7 +314,8 @@
             "lastNotNull"
           ],
           "displayMode": "table",
-          "placement": "right"
+          "placement": "right",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -357,6 +362,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "axisSoftMax": 2,
@@ -406,7 +413,7 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 12,
+        "w": 8,
         "x": 0,
         "y": 7
       },
@@ -417,8 +424,9 @@
             "max",
             "last"
           ],
-          "displayMode": "hidden",
+          "displayMode": "list",
           "placement": "right",
+          "showLegend": false,
           "sortBy": "Max",
           "sortDesc": true
         },
@@ -456,6 +464,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "axisSoftMax": 2,
@@ -505,8 +515,8 @@
       },
       "gridPos": {
         "h": 5,
-        "w": 12,
-        "x": 12,
+        "w": 8,
+        "x": 8,
         "y": 7
       },
       "id": 214,
@@ -516,8 +526,9 @@
             "max",
             "last"
           ],
-          "displayMode": "hidden",
+          "displayMode": "list",
           "placement": "right",
+          "showLegend": false,
           "sortBy": "Max",
           "sortDesc": true
         },
@@ -541,6 +552,108 @@
         }
       ],
       "title": "Nodes with unavailable Network",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "${datasource}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 2,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "area"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 0.5
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 8,
+        "x": 16,
+        "y": 7
+      },
+      "id": 219,
+      "options": {
+        "legend": {
+          "calcs": [
+            "max",
+            "last"
+          ],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": false,
+          "sortBy": "Max",
+          "sortDesc": true
+        },
+        "tooltip": {
+          "mode": "none",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${datasource}"
+          },
+          "editorMode": "code",
+          "expr": "sum by(node, operation_type) (rate(kubelet_runtime_operations_errors_total{cluster=\"\",job=\"kubelet\", metrics_path=\"/metrics\"}[5m]) * on(node) group_left() kube_node_role{role=~\"$noderole\"})",
+          "hide": false,
+          "legendFormat": "{{node}}/{{operation_type}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Kubernetes Operation Errors",
       "type": "timeseries"
     },
     {
@@ -596,7 +709,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -668,7 +781,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -698,6 +811,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -753,8 +868,9 @@
       "options": {
         "legend": {
           "calcs": [],
-          "displayMode": "hidden",
-          "placement": "right"
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": false
         },
         "tooltip": {
           "mode": "single",
@@ -831,7 +947,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -902,7 +1018,7 @@
         "showThresholdLabels": true,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -931,6 +1047,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -987,8 +1105,9 @@
       "options": {
         "legend": {
           "calcs": [],
-          "displayMode": "hidden",
-          "placement": "right"
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": false
         },
         "tooltip": {
           "mode": "single",
@@ -1057,7 +1176,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -1121,7 +1240,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -1150,6 +1269,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -1201,8 +1322,9 @@
       "options": {
         "legend": {
           "calcs": [],
-          "displayMode": "hidden",
-          "placement": "right"
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": false
         },
         "tooltip": {
           "mode": "single",
@@ -1284,7 +1406,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -1348,7 +1470,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.5.6",
+      "pluginVersion": "9.1.7",
       "targets": [
         {
           "datasource": {
@@ -1377,6 +1499,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "axisSoftMax": 200,
@@ -1434,8 +1558,9 @@
       "options": {
         "legend": {
           "calcs": [],
-          "displayMode": "hidden",
-          "placement": "right"
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": false
         },
         "tooltip": {
           "mode": "single",
@@ -4999,6 +5124,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -5096,6 +5222,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -5193,6 +5320,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -5380,7 +5508,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -5479,7 +5608,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -5669,7 +5799,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -5768,7 +5899,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -5959,7 +6091,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -6069,7 +6202,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -6271,7 +6405,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -6381,7 +6516,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -6585,7 +6721,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -6684,7 +6821,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -6887,7 +7025,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -6986,7 +7125,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -7180,7 +7320,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -7279,7 +7420,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -7432,7 +7574,8 @@
                 "last"
               ],
               "displayMode": "table",
-              "placement": "right"
+              "placement": "right",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "single",
@@ -7593,7 +7736,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -7692,7 +7836,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -7846,7 +7991,8 @@
                 "last"
               ],
               "displayMode": "table",
-              "placement": "right"
+              "placement": "right",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "single",
@@ -8005,7 +8151,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -8104,7 +8251,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -8287,7 +8435,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -8398,7 +8547,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -8590,7 +8740,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -8690,7 +8841,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -8894,7 +9046,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -8994,7 +9147,8 @@
             "legend": {
               "calcs": [],
               "displayMode": "list",
-              "placement": "bottom"
+              "placement": "bottom",
+              "showLegend": true
             },
             "tooltip": {
               "mode": "multi",
@@ -9145,6 +9299,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -9248,6 +9403,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -9364,6 +9520,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -9467,6 +9624,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -9582,6 +9740,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -9686,6 +9845,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -9786,6 +9946,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -9884,6 +10045,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -9982,6 +10144,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -10080,6 +10243,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -10177,6 +10341,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -10274,6 +10439,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -10371,6 +10537,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -10487,6 +10654,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -10585,6 +10753,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -10683,6 +10852,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -10781,6 +10951,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -10878,6 +11049,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -10975,6 +11147,7 @@
               ],
               "displayMode": "table",
               "placement": "right",
+              "showLegend": true,
               "sortBy": "Last",
               "sortDesc": true
             },
@@ -11005,7 +11178,7 @@
     }
   ],
   "refresh": "5m",
-  "schemaVersion": 36,
+  "schemaVersion": 37,
   "style": "dark",
   "tags": [
     "kubernetes",
@@ -11037,7 +11210,7 @@
       },
       {
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "worker",
           "value": "worker"
         },
@@ -11157,7 +11330,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "Standard Cluster Monitoring",
-  "uid": "std-cl-mon",
-  "version": 29,
+  "uid": "06a89190b992ff30ba11d55079192ac6f8524b84",
+  "version": 3,
   "weekStart": ""
 }
