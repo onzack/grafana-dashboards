@@ -229,11 +229,13 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "sum(kube_node_spec_unschedulable)",
           "hide": false,
           "interval": "",
           "legendFormat": "Unschedulable",
+          "range": true,
           "refId": "B"
         }
       ],
@@ -328,11 +330,13 @@
             "type": "prometheus",
             "uid": "${datasource}"
           },
-          "exemplar": true,
+          "editorMode": "code",
+          "exemplar": false,
           "expr": "sum(kube_node_info)",
           "hide": false,
           "interval": "",
           "legendFormat": "total",
+          "range": true,
           "refId": "B"
         },
         {
@@ -1678,7 +1682,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "exemplar": true,
+              "exemplar": false,
               "expr": "sum(instance:kube_node_role{role=~\"$noderole\"})",
               "interval": "",
               "legendFormat": "",
@@ -7174,7 +7178,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "exemplar": true,
+              "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests:memory:running{namespace=~\"kube-.*|cattle-.*|openshift-.*\", role=~\"$noderole\"})",
               "hide": false,
               "interval": "",
@@ -8005,7 +8009,7 @@
                 "type": "prometheus",
                 "uid": "${datasource}"
               },
-              "exemplar": true,
+              "exemplar": false,
               "expr": "sum(kube_pod_container_resource_requests:memory:running{role=~\"$noderole\"}) by (namespace)\n-\nsum(container_memory_working_set_bytes:sum{role=~\"$noderole\"}) by (namespace)\n> 0",
               "hide": false,
               "interval": "",
@@ -11210,7 +11214,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "worker",
           "value": "worker"
         },
@@ -11237,7 +11241,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "1",
           "value": "1"
         },
@@ -11275,7 +11279,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "0.1",
           "value": "0.1"
         },
@@ -11331,6 +11335,6 @@
   "timezone": "",
   "title": "Standard Cluster Monitoring",
   "uid": "06a89190b992ff30ba11d55079192ac6f8524b84",
-  "version": 3,
+  "version": 4,
   "weekStart": ""
 }
