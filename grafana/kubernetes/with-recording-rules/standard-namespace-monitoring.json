@@ -1137,7 +1137,7 @@
             "uid": "${datasource}"
           },
           "exemplar": false,
-          "expr": "sum by (persistentvolumeclaim) (kubelet_volume_stats_used_bytes{namespace=~\"$namespace\"})",
+          "expr": "avg by (persistentvolumeclaim) (kubelet_volume_stats_used_bytes{namespace=~\"$namespace\"})",
           "interval": "",
           "legendFormat": "{{persistentvolumeclaim}}",
           "refId": "A"
