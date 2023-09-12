@@ -7703,6 +7703,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "Standard Namespace Monitoring",
+  "uid": "ozk-std-ns-mon",
   "version": 10,
   "weekStart": ""
 }

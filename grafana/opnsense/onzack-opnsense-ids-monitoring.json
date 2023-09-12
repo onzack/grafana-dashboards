@@ -2587,6 +2587,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "OPNsense & IDS/IPS",
+  "uid": "ozk-opns-mon",
   "version": 272,
   "weekStart": ""
 }

@@ -10853,6 +10853,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "Cluster Monitoring",
+  "uid": "ozk-std-clstr-mon-norec",
   "version": 16,
   "weekStart": ""
 }

@@ -11334,6 +11334,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "Standard Cluster Monitoring",
+  "uid": "ozk-std-clstr-mon",
   "version": 4,
   "weekStart": ""
 }
