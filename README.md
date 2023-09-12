@@ -120,6 +120,15 @@ extraPorts:
       #externalTrafficPolicy: null
 ```
 
+## Velero Monitoring
+![ONZACK Velero Monitoring](https://github.com/onzack/grafana-dashboards/blob/main/docs/onzack-velero-monitoring.png)
+
+Velero is an open source tool to safely backup and restore, perform disaster recovery, and migrate Kubernetes cluster resources and persistent volumes.
+This dashboard gives a good overview of the events and performance of Velero.
+
+### Prerequisites
+- [Velero](https://velero.io)
+
 # Licence
 Copyright 2022 ONZACK AG
 
