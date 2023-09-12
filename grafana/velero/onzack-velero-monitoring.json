@@ -22,7 +22,7 @@
     ]
   },
   "description": "Stats for Velero backups",
-  "editable": true,
+  "editable": false,
   "fiscalYearStartMonth": 0,
   "gnetId": 11055,
   "graphTooltip": 1,

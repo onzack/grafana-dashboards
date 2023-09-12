@@ -22,7 +22,7 @@
     ]
   },
   "description": "Standard Kubernetes/OpenShift cluster monitoring dashboard (needs Prometheus recording rules)",
-  "editable": true,
+  "editable": false,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": 23,

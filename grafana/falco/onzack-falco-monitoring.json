@@ -22,7 +22,7 @@
     ]
   },
   "description": "Grafana dashboard for Falco output events",
-  "editable": true,
+  "editable": false,
   "fiscalYearStartMonth": 0,
   "gnetId": 11914,
   "graphTooltip": 0,
