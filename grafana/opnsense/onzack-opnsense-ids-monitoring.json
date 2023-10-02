@@ -21,10 +21,10 @@
       }
     ]
   },
-  "editable": false,
+  "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 29,
+  "id": 15,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -207,7 +207,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -268,7 +268,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -1277,7 +1277,7 @@
           "zoom": 2
         }
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -1471,7 +1471,7 @@
           "zoom": 2
         }
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -1768,7 +1768,7 @@
           }
         ]
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -2071,7 +2071,7 @@
           }
         ]
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -2536,6 +2536,25 @@
     "list": [
       {
         "current": {
+          "selected": true,
+          "text": "loki",
+          "value": "loki"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Datasource",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "loki",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {
           "selected": false,
           "text": "opnsense.onzack.io",
           "value": "opnsense.onzack.io"
@@ -2588,6 +2607,6 @@
   "timezone": "",
   "title": "OPNsense & IDS/IPS",
   "uid": "ozk-opns-mon",
-  "version": 272,
+  "version": 4,
   "weekStart": ""
 }
