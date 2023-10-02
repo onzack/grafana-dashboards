@@ -1,4 +1,59 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_LOKI",
+      "label": "loki",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "loki",
+      "pluginName": "Loki"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "geomap",
+      "name": "Geomap",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.1.1"
+    },
+    {
+      "type": "panel",
+      "id": "logs",
+      "name": "Logs",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "loki",
+      "name": "Loki",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "piechart",
+      "name": "Pie chart",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -21,17 +76,17 @@
       }
     ]
   },
-  "editable": true,
+  "editable": false,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 15,
+  "id": null,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "loki",
-        "uid": "${datasource}"
+        "uid": "${DS_LOKI}"
       },
       "gridPos": {
         "h": 1,
@@ -54,7 +109,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "${datasource}"
+            "uid": "${DS_LOKI}"
           },
           "editorMode": "code",
           "expr": "{job=\"syslog\", host=\"$host\"}\n|~ \"block|pass\" # filter to get only firewall logs\n!= \"icmp\" # filter only not ICMP packages\n| pattern `<_>,<_>,<_>,<RuleID>,<Interface>,<Reason>,<Action>,<Direction>,<IPVersion>,<_>,<_>,<TTL>,<ID>,<Offset>,<IPFlags>,<ProtocolNr>,<Protocol>,<Length>,<SourceIP>,<DestinationIP>,<SourcePort>,<DestinationPort>,<_>,<TCPFlags>,<Seq>,<_>,<_>`",
@@ -65,7 +120,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "${datasource}"
+            "uid": "${DS_LOKI}"
           },
           "editorMode": "code",
           "expr": "{job=\"syslog\", host=\"$host\"}\n|~ \"block|pass\" # filter to get only firewall logs\n|= \"icmp\" # filter only ICMP packages\n| pattern `<_>,<_>,<_>,<RuleID>,<Interface>,<Reason>,<Action>,<Direction>,<IPVersion>,<_>,<_>,<TTL>,<ID>,<Offset>,<IPFlags>,<ProtocolNr>,<Protocol>,<Length>,<SourceIP>,<DestinationIP>,<_>`",
@@ -81,7 +136,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "${datasource}"
+        "uid": "${DS_LOKI}"
       },
       "gridPos": {
         "h": 1,
@@ -104,7 +159,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "${datasource}"
+            "uid": "${DS_LOKI}"
           },
           "editorMode": "code",
           "expr": "{job=\"syslog-ids\",host=\"$host\"} != \"Drop\" |~ \"$searchregex\"\n|= \"Priority\" # filter to exclude not IDS/IPS events\n| pattern `[<_>:<ruleId>:<_>] <rule> [Classification: <classification>] [Priority: <priority>] {<protocol>} <sourceIP>:<sourcePort> -> <destinationIP>:<destinationPort>`\n| protocol!~\"IPv6.*\" ",
@@ -115,7 +170,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "${datasource}"
+            "uid": "${DS_LOKI}"
           },
           "editorMode": "code",
           "expr": "{job=\"syslog-ids\",host=\"$host\"} |= \"Drop\" |~ \"$searchregex\"\n|= \"Priority\" # filter to exclude not IDS/IPS events\n| pattern `[<action>] [<_>:<ruleId>:<_>] <rule> [Classification: <classification>] [Priority: <priority>] {<protocol>} <sourceIP>:<sourcePort> -> <destinationIP>:<destinationPort>`\n| protocol!~\"IPv6.*\" ",
@@ -125,7 +180,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "${datasource}"
+            "uid": "${DS_LOKI}"
           },
           "editorMode": "code",
           "expr": "{job=\"syslog-ids\",host=\"$host\"} != \"Drop\" |~ \"$searchregex\"\n|= \"Priority\" # filter to exclude not IDS/IPS events\n| pattern `[<action>] [<_>:<ruleId>:<_>] <rule> [Classification: <classification>] [Priority: <priority>] {<protocol>} <_>`\n| protocol=~\"IPv6.*\" # filter only IPv6 logs because pattern() cannot easy handle IPv6 that's why the following regex is used\n| regexp `(?P<sourceIP>(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))):(?P<sourcePort>\\d+) -> (?P<destinationIP>(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))):(?P<destinationPort>\\d+)`\n| label_format sourceIP=`{{ regexReplaceAllLiteral \"\\\\b(?:0+:){2,}\" .sourceIP \":\"}}`\n| label_format sourceIP=`{{ regexReplaceAllLiteral \"(:0+){1}\" .sourceIP \":\"}}`\n| label_format destinationIP=`{{ regexReplaceAllLiteral \"\\\\b(?:0+:){2,}\" .destinationIP \":\"}}`\n| label_format destinationIP=`{{ regexReplaceAllLiteral \"(:0+){1}\" .destinationIP \":\"}}`",
@@ -136,7 +191,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "${datasource}"
+            "uid": "${DS_LOKI}"
           },
           "editorMode": "code",
           "expr": "{job=\"syslog-ids\",host=\"$host\"} |= \"Drop\" |~ \"$searchregex\"\n|= \"Priority\" # filter to exclude not IDS/IPS events\n| pattern `[<action>] [<_>:<ruleId>:<_>] <rule> [Classification: <classification>] [Priority: <priority>] {<protocol>} <_>`\n| protocol=~\"IPv6.*\" # filter only IPv6 logs because pattern() cannot easy handle IPv6 that's why the following regex is used\n| regexp `(?P<sourceIP>(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))):(?P<sourcePort>\\d+) -> (?P<destinationIP>(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))):(?P<destinationPort>\\d+)`\n| label_format sourceIP=`{{ regexReplaceAllLiteral \"\\\\b(?:0+:){2,}\" .sourceIP \":\"}}`\n| label_format sourceIP=`{{ regexReplaceAllLiteral \"(:0+){1}\" .sourceIP \":\"}}`\n| label_format destinationIP=`{{ regexReplaceAllLiteral \"\\\\b(?:0+:){2,}\" .destinationIP \":\"}}`\n| label_format destinationIP=`{{ regexReplaceAllLiteral \"(:0+){1}\" .destinationIP \":\"}}`",
@@ -165,7 +220,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "${datasource}"
+        "uid": "${DS_LOKI}"
       },
       "fieldConfig": {
         "defaults": {
@@ -212,7 +267,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "${datasource}"
+            "uid": "${DS_LOKI}"
           },
           "editorMode": "code",
           "expr": "sum(count_over_time({job=\"syslog\",host=\"$host\"}[$__range]))",
@@ -226,7 +281,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "${datasource}"
+        "uid": "${DS_LOKI}"
       },
       "fieldConfig": {
         "defaults": {
@@ -273,7 +328,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "${datasource}"
+            "uid": "${DS_LOKI}"
           },
           "editorMode": "code",
           "expr": "sum(count_over_time({job=\"syslog-ids\", host=\"$host\"} |~ \"$searchregex\" [$__range]))",
@@ -2483,7 +2538,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "${datasource}"
+            "uid": "${DS_LOKI}"
           },
           "description": "",
           "gridPos": {
@@ -2507,7 +2562,7 @@
             {
               "datasource": {
                 "type": "loki",
-                "uid": "${datasource}"
+                "uid": "${DS_LOKI}"
               },
               "editorMode": "code",
               "expr": "{job=\"syslog-ids\",host=\"$host\"} \n|~ \"$searchregex\"\n!~ \"\\\\[\\\\d:\\\\d+:\\\\d\\\\]\"",
@@ -2554,14 +2609,10 @@
         "type": "datasource"
       },
       {
-        "current": {
-          "selected": false,
-          "text": "opnsense.onzack.io",
-          "value": "opnsense.onzack.io"
-        },
+        "current": {},
         "datasource": {
           "type": "loki",
-          "uid": "${datasource}"
+          "uid": "${DS_LOKI}"
         },
         "definition": "label_values({job=\"syslog-ids\"}, host)",
         "hide": 0,
@@ -2607,6 +2658,6 @@
   "timezone": "",
   "title": "OPNsense & IDS/IPS",
   "uid": "ozk-opns-mon",
-  "version": 4,
+  "version": 5,
   "weekStart": ""
 }
