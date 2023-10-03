@@ -2655,6 +2655,6 @@
   "timezone": "",
   "title": "OPNsense & IDS/IPS",
   "uid": "ozk-opns-mon",
-  "version": 10,
+  "version": 11,
   "weekStart": ""
 }
