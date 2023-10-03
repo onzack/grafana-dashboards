@@ -2231,8 +2231,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -2543,7 +2542,7 @@
             "h": 12,
             "w": 12,
             "x": 12,
-            "y": 53
+            "y": 33
           },
           "id": 3,
           "options": {
@@ -2589,7 +2588,7 @@
     "list": [
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "loki",
           "value": "loki"
         },
@@ -2655,7 +2654,7 @@
   "timepicker": {},
   "timezone": "",
   "title": "OPNsense & IDS/IPS",
-  "uid": "ozk-opns-mon",
-  "version": 8,
+  "uid": "temp-ozk-opns",
+  "version": 10,
   "weekStart": ""
 }
