@@ -129,8 +129,16 @@ This dashboard gives a good overview of the events and performance of Velero.
 ### Prerequisites
 - [Velero](https://velero.io)
 
+## Systemd Monitoring
+![ONZACK Systemd Monitoring](https://github.com/onzack/grafana-dashboards/blob/main/docs/onzack-systemd-monitoring.png)
+
+Monitor state of systemd services running on the node.
+
+### Prerequisites
+- Node Exporter with Systemd collector enabled (Note: in order to collect metrics you need to mount /var/run/dbus/system_bus_socket into node-exporter and allow read access in Apparmor, if enabled)
+
 # Licence
-Copyright 2022 ONZACK AG
+Copyright 2023 ONZACK AG
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
