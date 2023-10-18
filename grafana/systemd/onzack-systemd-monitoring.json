@@ -336,7 +336,7 @@
         }
       ],
       "timeFrom": "24h",
-      "title": "Inactive Services",
+      "title": "Inactive (all nodes)",
       "type": "timeseries"
     },
     {
@@ -416,7 +416,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by(node, state) (node_systemd_unit_state * on(instance) group_left(node) label_replace(node_uname_info, \"node\", \"$1\", \"nodename\", \"(.*)\"))",
+          "expr": "sum by(node, state) (node_systemd_unit_state * on(instance, pod) group_left(node) label_replace(node_uname_info, \"node\", \"$1\", \"nodename\", \"(.*)\"))",
           "format": "table",
           "instant": true,
           "legendFormat": "__auto",
@@ -515,7 +515,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by(node, name) (node_systemd_unit_state{state=\"active\"} * on(instance) group_left(node) label_replace(node_uname_info, \"node\", \"$1\", \"nodename\", \"(.*)\")) > 0",
+          "expr": "sum by(node, name) (node_systemd_unit_state{state=\"active\"} * on(instance, pod) group_left(node) label_replace(node_uname_info, \"node\", \"$1\", \"nodename\", \"(.*)\")) > 0",
           "format": "table",
           "instant": true,
           "legendFormat": "",
@@ -523,7 +523,7 @@
           "refId": "A"
         }
       ],
-      "title": "Active Services",
+      "title": "Active (all nodes)",
       "transformations": [
         {
           "id": "organize",
@@ -607,7 +607,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by(node, name) (node_systemd_unit_state{state=\"activating\"} * on(instance) group_left(node) label_replace(node_uname_info, \"node\", \"$1\", \"nodename\", \"(.*)\")) > 0",
+          "expr": "sum by(node, name) (node_systemd_unit_state{state=\"activating\"} * on(instance, pod) group_left(node) label_replace(node_uname_info, \"node\", \"$1\", \"nodename\", \"(.*)\")) > 0",
           "format": "table",
           "instant": true,
           "legendFormat": "",
@@ -615,7 +615,7 @@
           "refId": "A"
         }
       ],
-      "title": "Activating Services",
+      "title": "Activating (all nodes)",
       "transformations": [
         {
           "id": "organize",
@@ -697,7 +697,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "sum by(node, name) (node_systemd_unit_state{state=\"deactivating\"} * on(instance) group_left(node) label_replace(node_uname_info, \"node\", \"$1\", \"nodename\", \"(.*)\")) > 0",
+          "expr": "sum by(node, name) (node_systemd_unit_state{state=\"deactivating\"} * on(instance, pod) group_left(node) label_replace(node_uname_info, \"node\", \"$1\", \"nodename\", \"(.*)\")) > 0",
           "format": "table",
           "instant": true,
           "legendFormat": "",
@@ -705,7 +705,7 @@
           "refId": "A"
         }
       ],
-      "title": "Deactivating Services",
+      "title": "Deactivating (all nodes)",
       "transformations": [
         {
           "id": "organize",
@@ -760,6 +760,6 @@
   "timezone": "",
   "title": "Systemd Service Monitoring",
   "uid": "ozk-systemd-mon",
-  "version": 5,
+  "version": 1,
   "weekStart": ""
 }
