@@ -11,6 +11,14 @@ ONZACK worked with LGT Bank in Liechtenstein to create two Grafana dashboards fo
 - [Download](https://github.com/onzack/grafana-dashboards/blob/main/grafana/kubernetes/with-recording-rules/standard-cluster-monitoring.json) ONZACK Cluster Monitoring Dashboard with recording rules
 - [Download](https://github.com/onzack/grafana-dashboards/blob/main/prometheus/recording-rules/onzack-cluster-monitoring-recording-rules.yaml) Prometheus Recording Rules for ONZACK Cluster Monitoring Dashboard
 
+#### Troubleshooting
+- When using our dashboard with kube-prometheus-stack installed with helm and the custom rules are installed as yaml files, set `ruleSelectorNilUsesHelmValues: false` in the values.yaml for prometheus to load them.
+- Make sure your nodes are labeled correctly:
+ ```
+kubectl label node <YOUR-WORKERNODE> node-role.kubernetes.io/worker=worker
+kubectl label node <YOUR-CONTROLPLANENODE> node-role.kubernetes.io/control-plane=control-plane
+```
+
 ### Namespace Monitoring
 ![ONZACK Namespace Monitoring](https://github.com/onzack/grafana-dashboards/blob/main/docs/onzack-namespace-monitoring.png)
 
