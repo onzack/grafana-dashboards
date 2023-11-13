@@ -1,7 +1,7 @@
 {
     "__inputs": [
       {
-        "name": "datasource",
+        "name": "DATASOURCE",
         "label": "prometheus",
         "description": "",
         "type": "datasource",
@@ -1485,7 +1485,7 @@
           "includeAll": false,
           "label": "Datasource",
           "multi": false,
-          "name": "DATASOURCE",
+          "name": "datasource",
           "options": [],
           "query": "prometheus",
           "refresh": 1,
