@@ -12,7 +12,7 @@
         "name": "VAR_GITLAB_HOST",
         "type": "constant",
         "label": "GITLAB_HOST",
-        "value": "your_gitlab.ch",
+        "value": "your-gitlab.ch",
         "description": ""
       }
     ],
@@ -185,7 +185,7 @@
                 "instant": true,
                 "interval": "",
                 "intervalFactor": 1,
-                "legendFormat": "                                          {{project}} - {{ref}}",
+                "legendFormat": "{{project}} - {{ref}}",
                 "refId": "A"
               }
             ],
