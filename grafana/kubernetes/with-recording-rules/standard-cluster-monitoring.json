@@ -1682,7 +1682,7 @@
           "refId": "B"
         }
       ],
-      "title": "Network Bandwith (receive & transmit) by Node",
+      "title": "Network Bandwidth (receive & transmit) by Node",
       "type": "timeseries"
     },
     {
@@ -11143,7 +11143,7 @@
               "refId": "A"
             }
           ],
-          "title": "Receive Network Bandwith by Node",
+          "title": "Receive Network Bandwidth by Node",
           "type": "timeseries"
         },
         {
@@ -11247,7 +11247,7 @@
               "refId": "A"
             }
           ],
-          "title": "Transmit Network Bandwith by Node",
+          "title": "Transmit Network Bandwidth by Node",
           "type": "timeseries"
         },
         {

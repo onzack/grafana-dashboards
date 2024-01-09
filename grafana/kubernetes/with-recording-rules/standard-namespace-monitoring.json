@@ -1698,7 +1698,7 @@
           "refId": "B"
         }
       ],
-      "title": "Network Bandwith (receive & transmit) by Pod",
+      "title": "Network Bandwidth (receive & transmit) by Pod",
       "type": "timeseries"
     },
     {
@@ -7444,7 +7444,7 @@
               "refId": "A"
             }
           ],
-          "title": "Receive Network Bandwith by Pod",
+          "title": "Receive Network Bandwidth by Pod",
           "type": "timeseries"
         },
         {
@@ -7547,7 +7547,7 @@
               "refId": "A"
             }
           ],
-          "title": "Transmit Network Bandwith by Pod",
+          "title": "Transmit Network Bandwidth by Pod",
           "type": "timeseries"
         },
         {
