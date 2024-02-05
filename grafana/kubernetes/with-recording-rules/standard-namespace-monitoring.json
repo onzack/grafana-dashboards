@@ -2491,7 +2491,7 @@
                 }
               },
               "mappings": [],
-              "noValue": "no Deployments",
+              "noValue": "no deployments",
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -2593,7 +2593,7 @@
                 }
               },
               "mappings": [],
-              "noValue": "no StatefulSets",
+              "noValue": "no statefulsets",
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -2695,7 +2695,7 @@
                 }
               },
               "mappings": [],
-              "noValue": "no DaemonSets",
+              "noValue": "no daemonsets",
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -2799,7 +2799,7 @@
                 }
               },
               "mappings": [],
-              "noValue": "no Jobs",
+              "noValue": "no jobs",
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -8350,6 +8350,6 @@
   "timezone": "",
   "title": "Standard Namespace Monitoring",
   "uid": "ozk-std-ns-mon",
-  "version": 21,
+  "version": 22,
   "weekStart": ""
 }
