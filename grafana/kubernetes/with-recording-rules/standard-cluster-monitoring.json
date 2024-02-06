@@ -276,7 +276,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
-          "expr": "sum by (condition) (kube_node_status_condition{condition!=\"Ready\", status!=\"false\"})",
+          "expr": "sum by (condition) (kube_node_status_condition{condition!=\"Ready\", condition!=\"EtcdIsVoter\", status!=\"false\"})",
           "hide": false,
           "interval": "",
           "legendFormat": "{{condition}}",
