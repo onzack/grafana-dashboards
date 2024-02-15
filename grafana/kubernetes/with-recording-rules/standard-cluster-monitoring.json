@@ -618,7 +618,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
-          "expr": "sum by (node) (kube_node_status_condition{condition=\"NetworkUnavailable\", status!=\"false\"} * on(node) group_left() kube_node_role{role=~\"$noderole\"})",
+          "expr": "sum by (node) (kube_node_status_condition{condition=\"NetworkUnavailable\", status!=\"false\"} * on(node) group_left() kube_node_role{role=~\"$noderole\"}) or vector(0)",
           "hide": false,
           "interval": "",
           "legendFormat": "{{node}}",
