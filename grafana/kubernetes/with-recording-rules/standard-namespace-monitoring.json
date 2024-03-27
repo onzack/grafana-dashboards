@@ -5090,12 +5090,12 @@
               {
                 "matcher": {
                   "id": "byName",
-                  "options": "Value #throtteling"
+                  "options": "Value #throttling"
                 },
                 "properties": [
                   {
                     "id": "displayName",
-                    "value": "Throtteling"
+                    "value": "Throttling"
                   },
                   {
                     "id": "unit",
@@ -5320,7 +5320,7 @@
               "instant": true,
               "interval": "",
               "legendFormat": "",
-              "refId": "throtteling"
+              "refId": "throttling"
             },
             {
               "datasource": {
@@ -6774,7 +6774,7 @@
               "refId": "A"
             }
           ],
-          "title": "CPU CFS Throtteling by Containers",
+          "title": "CPU CFS Throttling by Containers",
           "type": "timeseries"
         }
       ],
