@@ -1,7 +1,7 @@
 {
   "__inputs": [
     {
-      "name": "DS_DATASOURCE",
+      "name": "DS_PROMETHEUS",
       "label": "prometheus",
       "description": "",
       "type": "datasource",
@@ -12,7 +12,7 @@
       "name": "VAR_GITLAB_HOST",
       "type": "constant",
       "label": "GITLAB_HOST",
-      "value": "your-gitlab.ch",
+      "value": "gitlab.onzack.io",
       "description": ""
     }
   ],
@@ -22,7 +22,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "10.1.4"
+      "version": "10.4.2"
     },
     {
       "type": "datasource",
@@ -93,13 +93,20 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "fieldConfig": {
             "defaults": {
               "color": {
                 "mode": "thresholds"
               },
+              "links": [
+                {
+                  "targetBlank": true,
+                  "title": "View environment: ${__field.labels.environment} (${__field.labels.environment_id})",
+                  "url": "https://${GITLAB_HOST}/${__field.labels.project}/-/environments/${__field.labels.environment_id}?tab=deployment-history"
+                }
+              ],
               "mappings": [
                 {
                   "options": {
@@ -140,7 +147,6 @@
             "y": 1
           },
           "id": 126,
-          "links": [],
           "options": {
             "colorMode": "background",
             "graphMode": "none",
@@ -153,28 +159,29 @@
               "fields": "",
               "values": false
             },
-            "textMode": "none"
+            "showPercentChange": false,
+            "textMode": "none",
+            "wideLayout": true
           },
-          "pluginVersion": "10.1.4",
+          "pluginVersion": "10.4.2",
           "targets": [
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "${datasource}"
+                "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
-              "expr": "gitlab_ci_environment_behind_commits_count{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\"}",
+              "expr": "gitlab_ci_environment_behind_commits_count{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\"} * on(project,environment) group_left(environment_id) max(gitlab_ci_environment_information{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\"}) by (environment_id, project, environment, author_email, current_commit_short_id, ref, latest_commit_short_id)",
               "format": "time_series",
               "hide": false,
               "instant": true,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "{{ project }} - {{ environment }}",
+              "legendFormat": "{{ project }} - {{ environment }} ({{ environment_id }})",
               "refId": "A"
             }
           ],
           "title": "Commits behind",
-          "transformations": [],
           "transparent": true,
           "type": "stat"
         }
@@ -198,7 +205,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -237,7 +244,6 @@
         "y": 2
       },
       "id": 107,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "background",
@@ -256,14 +262,16 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "10.1.4",
+      "pluginVersion": "10.4.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "count(gitlab_ci_environment_information{available=\"true\", project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\"}) or vector(0)",
           "format": "time_series",
@@ -280,7 +288,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -323,7 +331,6 @@
         "y": 2
       },
       "id": 113,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "background",
@@ -342,14 +349,16 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "10.1.4",
+      "pluginVersion": "10.4.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "count(gitlab_ci_environment_behind_commits_count{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT.*\"} > 0) or vector(0)",
           "format": "time_series",
@@ -366,7 +375,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -409,7 +418,6 @@
         "y": 2
       },
       "id": 111,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "background",
@@ -428,14 +436,16 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "10.1.4",
+      "pluginVersion": "10.4.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "count(gitlab_ci_environment_status{status=\"failed\", project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\"} > 0) or vector(0)",
           "format": "time_series",
@@ -452,7 +462,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -495,7 +505,6 @@
         "y": 2
       },
       "id": 112,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "background",
@@ -514,14 +523,16 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "10.1.4",
+      "pluginVersion": "10.4.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "count(gitlab_ci_environment_information{available=\"false\", project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\"}) or vector(0)",
           "format": "time_series",
@@ -538,7 +549,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -547,6 +558,7 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisBorderShow": false,
             "axisCenteredZero": false,
             "axisColorMode": "text",
             "axisGridShow": true,
@@ -622,7 +634,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(increase(gitlab_ci_environment_deployment_count{project=~\"$PROJECT\",environment=~\"$ENVIRONMENT\"}[5m])) by (project, environment) / \r\nsum(increase(gitlab_ci_environment_deployment_count{project=~\"$PROJECT\",environment=~\"$ENVIRONMENT\"}[5m])) by (project, environment) > 0",
@@ -639,7 +651,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -678,7 +690,6 @@
         "y": 5
       },
       "id": 116,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "background",
@@ -697,14 +708,16 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "10.1.4",
+      "pluginVersion": "10.4.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "sum(increase(gitlab_ci_environment_deployment_count{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\"}[1h]))",
           "format": "time_series",
@@ -721,7 +734,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -765,7 +778,6 @@
         "y": 5
       },
       "id": 106,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "background",
@@ -784,14 +796,16 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "10.1.4",
+      "pluginVersion": "10.4.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "avg(gitlab_ci_environment_behind_commits_count{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\"})",
           "format": "time_series",
@@ -808,7 +822,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -852,7 +866,6 @@
         "y": 5
       },
       "id": 108,
-      "links": [],
       "maxDataPoints": 100,
       "options": {
         "colorMode": "background",
@@ -871,14 +884,16 @@
           "fields": "/^avg_deployment_lag$/",
           "values": false
         },
-        "textMode": "auto"
+        "showPercentChange": false,
+        "textMode": "auto",
+        "wideLayout": true
       },
-      "pluginVersion": "10.1.4",
+      "pluginVersion": "10.4.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "avg(gitlab_ci_environment_behind_duration_seconds{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\"})",
@@ -896,7 +911,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "${datasource}"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1318,7 +1333,6 @@
         "y": 8
       },
       "id": 120,
-      "links": [],
       "options": {
         "cellHeight": "sm",
         "footer": {
@@ -1337,12 +1351,12 @@
           }
         ]
       },
-      "pluginVersion": "10.1.4",
+      "pluginVersion": "10.4.2",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "(max(gitlab_ci_environment_deployment_status{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\", status=~\"success\"}) by (project, environment) * 1) > 0 or\n(max(gitlab_ci_environment_deployment_status{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\", status=~\"running\"}) by (project, environment) * 2) > 0 or\n(max(gitlab_ci_environment_deployment_status{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\", status=~\"failed\"}) by (project, environment) * 3) > 0 or\n(max(gitlab_ci_environment_deployment_status{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\", status=~\"canceled\"}) by (project, environment) * 4) > 0 or\n(max(gitlab_ci_environment_deployment_status{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\", status=~\"skipped\"}) by (project, environment) * 5) > 0 or\n(max(gitlab_ci_environment_deployment_status{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\", status=~\"created|waiting_for_resource|preparing|pending|manual|scheduled\"}) by (project, environment) * 6) > 0",
           "format": "table",
@@ -1356,7 +1370,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "-max(time() - gitlab_ci_environment_deployment_timestamp{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\"}) by (project, environment)",
           "format": "table",
@@ -1370,7 +1384,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "max(gitlab_ci_environment_deployment_duration_seconds{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\"}) by (project, environment)",
           "format": "table",
@@ -1384,7 +1398,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "max(gitlab_ci_environment_information{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\"}) by (environment_id, project, environment, author_email, current_commit_short_id, ref, latest_commit_short_id)",
           "format": "table",
@@ -1396,7 +1410,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "max(gitlab_ci_environment_behind_commits_count{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\"}) by (project, environment)",
           "format": "table",
@@ -1408,7 +1422,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "max(gitlab_ci_environment_behind_duration_seconds{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\"}) by (project, environment)",
           "format": "table",
@@ -1420,7 +1434,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "${datasource}"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "max(gitlab_ci_environment_deployment_job_id{project=~\"$PROJECT\", environment=~\"$ENVIRONMENT\"}) by (project, environment)",
@@ -1490,8 +1504,7 @@
     }
   ],
   "refresh": "5m",
-  "schemaVersion": 38,
-  "style": "dark",
+  "schemaVersion": 39,
   "tags": [
     "GitLab"
   ],
@@ -1537,6 +1550,10 @@
       {
         "allValue": "",
         "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
         "definition": "label_values(gitlab_ci_environment_information, project)",
         "hide": 0,
         "includeAll": true,
@@ -1560,6 +1577,10 @@
       {
         "allValue": "",
         "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
         "definition": "label_values(gitlab_ci_environment_information{project=~\"$OWNER.*\"}, project)",
         "hide": 0,
         "includeAll": true,
@@ -1582,6 +1603,10 @@
       },
       {
         "current": {},
+        "datasource": {
+          "type": "prometheus",
+          "uid": "${DS_PROMETHEUS}"
+        },
         "definition": "label_values(gitlab_ci_environment_information{project=~\"$PROJECT\"}, environment)",
         "hide": 0,
         "includeAll": true,
@@ -1634,7 +1659,7 @@
   },
   "timezone": "",
   "title": "GitLab CI Environments & Deployments",
-  "uid": "ozk-gitlab-environments",
-  "version": 2,
+  "uid": "gitlab_ci_environment_deployments",
+  "version": 10,
   "weekStart": ""
 }
