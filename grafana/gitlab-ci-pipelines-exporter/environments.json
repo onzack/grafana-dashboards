@@ -936,7 +936,7 @@
                   {
                     "targetBlank": true,
                     "title": "View environment #${__value.text}",
-                    "url": "https://${GITLAB_HOST}﻿/﻿${__data.fields.project}﻿/-/environments/﻿${__value.text}"
+                    "url": "https://${GITLAB_HOST}/${__data.fields.project}/-/environments/${__value.text}"
                   }
                 ]
               },
