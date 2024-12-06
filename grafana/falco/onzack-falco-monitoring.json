@@ -15,7 +15,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "10.3.3"
+      "version": "11.2.0"
     },
     {
       "type": "panel",
@@ -34,6 +34,12 @@
       "id": "piechart",
       "name": "Pie chart",
       "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
     },
     {
       "type": "panel",
@@ -101,7 +107,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "${DS_LOKI}"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -117,8 +123,7 @@
                 "value": null
               }
             ]
-          },
-          "unitScale": true
+          }
         },
         "overrides": []
       },
@@ -134,6 +139,7 @@
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
+        "percentChangeColorMode": "standard",
         "reduceOptions": {
           "calcs": [
             "lastNotNull"
@@ -145,7 +151,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "10.3.3",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "datasource": {
@@ -165,7 +171,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "${DS_LOKI}"
+        "uid": "${datasource}"
       },
       "description": "",
       "fieldConfig": {
@@ -180,8 +186,7 @@
               "viz": false
             }
           },
-          "mappings": [],
-          "unitScale": true
+          "mappings": []
         },
         "overrides": []
       },
@@ -235,7 +240,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "${DS_LOKI}"
+        "uid": "${datasource}"
       },
       "description": "",
       "fieldConfig": {
@@ -250,8 +255,7 @@
               "viz": false
             }
           },
-          "mappings": [],
-          "unitScale": true
+          "mappings": []
         },
         "overrides": []
       },
@@ -305,7 +309,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "${DS_LOKI}"
+        "uid": "${datasource}"
       },
       "description": "",
       "fieldConfig": {
@@ -320,8 +324,7 @@
               "viz": false
             }
           },
-          "mappings": [],
-          "unitScale": true
+          "mappings": []
         },
         "overrides": []
       },
@@ -376,7 +379,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "${DS_LOKI}"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -390,6 +393,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
+            "barWidthFactor": 0.6,
             "drawStyle": "bars",
             "fillOpacity": 10,
             "gradientMode": "none",
@@ -431,8 +435,7 @@
                 "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
         },
         "overrides": []
       },
@@ -480,8 +483,9 @@
     },
     {
       "datasource": {
+        "default": false,
         "type": "loki",
-        "uid": "${DS_LOKI}"
+        "uid": "${datasource}"
       },
       "fieldConfig": {
         "defaults": {
@@ -503,28 +507,23 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "orange",
                 "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
               }
             ]
-          },
-          "unitScale": true
+          }
         },
         "overrides": [
           {
             "matcher": {
               "id": "byName",
-              "options": "Rule Violation"
+              "options": "Rule Violations"
             },
             "properties": [
               {
                 "id": "custom.cellOptions",
                 "value": {
-                  "mode": "lcd",
+                  "mode": "gradient",
                   "type": "gauge"
                 }
               }
@@ -557,7 +556,7 @@
           }
         ]
       },
-      "pluginVersion": "10.3.3",
+      "pluginVersion": "11.2.0",
       "targets": [
         {
           "datasource": {
@@ -565,19 +564,47 @@
             "uid": "${DS_LOKI}"
           },
           "editorMode": "code",
-          "expr": "topk($top, \r\n  sum by (k8s_pod_name,k8s_ns) (\r\n    count_over_time({$filter_falco_logs,priority=~\"$priority\",priority!=\"Debug\"} \r\n      | logfmt | __error__ = \"\" \r\n      | container!=\"host\", k8s_pod_name!=\"<NA>\" \r\n      | label_format k8s_pod_name=`{{ .k8s_pod_name | replace \")\" \"\" }}`[$__range]   # Replace \")\" in pod name with \"\"\r\n    )\r\n  )\r\n)",
+          "expr": "sum by (k8s_pod_name,k8s_ns) (\r\n  count_over_time({$filter_falco_logs,priority=~\"$priority\",priority!=\"Debug\"} \r\n    | logfmt | __error__ = \"\" \r\n    | container!=\"host\", k8s_pod_name!=\"<NA>\" \r\n    | label_format k8s_pod_name=`{{ .k8s_pod_name | replace \")\" \"\" }}`[$__range]   # Replace \")\" in pod name with \"\"\r\n  )\r\n)",
           "hide": false,
           "legendFormat": "",
-          "queryType": "instant",
+          "queryType": "range",
           "refId": "B"
         }
       ],
       "title": "Top $top Pods",
       "transformations": [
         {
+          "id": "reduce",
+          "options": {
+            "labelsToFields": true,
+            "reducers": [
+              "lastNotNull"
+            ]
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Last *"
+              }
+            ]
+          }
+        },
+        {
+          "id": "limit",
+          "options": {
+            "limitField": "$top"
+          }
+        },
+        {
           "id": "organize",
           "options": {
             "excludeByName": {
+              "Field": true,
               "Time": true
             },
             "includeByName": {},
@@ -588,6 +615,8 @@
               "k8s_pod_name": 2
             },
             "renameByName": {
+              "Last *": "Rule Violations",
+              "Total": "Rule Violations",
               "Value #B": "Rule Violations",
               "k8s_ns": "Namespace",
               "k8s_pod": "Pod",
@@ -611,7 +640,7 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "${DS_LOKI}"
+            "uid": "${datasource}"
           },
           "gridPos": {
             "h": 22,
@@ -660,11 +689,7 @@
   "templating": {
     "list": [
       {
-        "current": {
-          "selected": false,
-          "text": "loki",
-          "value": "loki"
-        },
+        "current": {},
         "hide": 0,
         "includeAll": false,
         "label": "Datasource",
@@ -704,7 +729,7 @@
         "current": {},
         "datasource": {
           "type": "loki",
-          "uid": "${DS_LOKI}"
+          "uid": "${datasource}"
         },
         "definition": "",
         "hide": 0,
@@ -727,7 +752,7 @@
       },
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "10",
           "value": "10"
         },
@@ -766,7 +791,7 @@
       },
       {
         "current": {
-          "selected": false,
+          "selected": true,
           "text": "",
           "value": ""
         },
@@ -795,6 +820,6 @@
   "timezone": "",
   "title": "Falco",
   "uid": "ozk-flc-mon",
-  "version": 20,
+  "version": 11,
   "weekStart": ""
 }
