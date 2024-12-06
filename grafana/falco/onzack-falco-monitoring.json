@@ -564,7 +564,7 @@
             "uid": "${DS_LOKI}"
           },
           "editorMode": "code",
-          "expr": "sum by (k8s_pod_name,k8s_ns) (\r\n  count_over_time({$filter_falco_logs,priority=~\"$priority\",priority!=\"Debug\"} \r\n    | logfmt | __error__ = \"\" \r\n    | container!=\"host\", k8s_pod_name!=\"<NA>\" \r\n    | label_format k8s_pod_name=`{{ .k8s_pod_name | replace \")\" \"\" }}`[$__range]   # Replace \")\" in pod name with \"\"\r\n  )\r\n)",
+          "expr": "sum by (k8s_pod_name,k8s_ns) (\r\n  count_over_time({$filter_falco_logs,priority=~\"$priority\",priority!=\"Debug\"} \r\n    | logfmt | __error__ = \"\" \r\n    | container!=\"host\", k8s_pod_name!=\"<NA>)\" \r\n    | label_format k8s_pod_name=`{{ .k8s_pod_name | replace \")\" \"\" }}`[$__range]   # Replace \")\" in pod name with \"\"\r\n  )\r\n)",
           "hide": false,
           "legendFormat": "",
           "queryType": "range",
