@@ -1585,7 +1585,7 @@
               "refId": "used-limits-ratio"
             }
           ],
-          "title": "Namesapce CPU Cores Quota ($namespace)",
+          "title": "Namespace CPU Cores Quota ($namespace)",
           "transformations": [
             {
               "id": "merge",
@@ -1868,7 +1868,7 @@
               "refId": "used-limits-ratio"
             }
           ],
-          "title": "Namesapce Memory Quota ($namespace)",
+          "title": "Namespace Memory Quota ($namespace)",
           "transformations": [
             {
               "id": "merge",
