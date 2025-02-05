@@ -6438,7 +6438,7 @@
               "refId": "used-limits-ratio"
             }
           ],
-          "title": "Namespace Memory Quota ($namespace)",
+          "title": "Namespace Storage Quota ($namespace)",
           "transformations": [
             {
               "id": "merge",
