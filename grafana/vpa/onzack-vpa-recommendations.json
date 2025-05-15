@@ -1733,7 +1733,7 @@
               "calcs": [
                 "lastNotNull"
               ],
-              "fields": "/^Value \\#A$/",
+              "fields": "/^Value \\#OOM Detected$/",
               "values": false
             },
             "showPercentChange": false,
@@ -2080,6 +2080,6 @@
   "timezone": "browser",
   "title": "VPA Recommendations",
   "uid": "ozk-vpa-recommendations",
-  "version": 11,
+  "version": 12,
   "weekStart": ""
 }
