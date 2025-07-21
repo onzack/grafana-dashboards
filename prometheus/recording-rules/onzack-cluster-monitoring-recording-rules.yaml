@@ -7,7 +7,7 @@ spec:
   - name: common
     rules:
     - record: instance:kube_node_role
-      expr: kube_node_role * on(node) group_left(instance) label_replace(node_uname_info,"node", "$1", "nodename", "(.*)")
+      expr: topk by (node) (1,kube_node_role * on(node) group_left(instance) label_replace(node_uname_info, "node", "$1", "nodename", "(.*)"))
   - name: cpu
     rules:
     - record: node_cpu_seconds_total:sum_rate5m
