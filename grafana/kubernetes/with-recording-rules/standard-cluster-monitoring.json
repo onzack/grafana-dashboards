@@ -512,7 +512,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
-          "expr": "sum by (node) (kube_node_spec_unschedulable * on(node) group_left() kube_node_role{role=~\"$noderole\"})",
+          "expr": "sum by (node) (kube_node_spec_unschedulable * on(node) group_left() (sum by (node, role) (kube_node_role{role=~\"$noderole\"})))",
           "hide": false,
           "interval": "",
           "legendFormat": "{{node}}",
@@ -617,7 +617,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
-          "expr": "sum by (node) (kube_node_status_condition{condition=\"NetworkUnavailable\", status!=\"false\"} * on(node) group_left() kube_node_role{role=~\"$noderole\"}) or vector(0)",
+          "expr": "sum by (node) (kube_node_status_condition{condition=\"NetworkUnavailable\", status!=\"false\"} * on(node) group_left() (sum by (node, role) (kube_node_role{role=~\"$noderole\"}))) or vector(0)",
           "hide": false,
           "interval": "",
           "legendFormat": "{{node}}",
@@ -722,7 +722,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum by(node, operation_type) (rate(kubelet_runtime_operations_errors_total{cluster=\"\",job=\"kubelet\", metrics_path=\"/metrics\"}[5m]) * on(node) group_left() kube_node_role{role=~\"$noderole\"}) or vector(0)",
+          "expr": "sum by(node, operation_type) (rate(kubelet_runtime_operations_errors_total{cluster=\"\",job=\"kubelet\", metrics_path=\"/metrics\"}[5m]) * on(node) group_left() (sum by (node, role) (kube_node_role{role=~\"$noderole\"}))) or vector(0)",
           "hide": false,
           "legendFormat": "{{node}}/{{operation_type}}",
           "range": true,
