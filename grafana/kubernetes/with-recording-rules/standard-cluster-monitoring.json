@@ -512,7 +512,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
-          "expr": "sum by (node) (kube_node_spec_unschedulable * on(node) group_left() (sum by (node, role) (kube_node_role{role=~\"$noderole\"})))",
+          "expr": "sum by (node) (kube_node_spec_unschedulable * on(node) group_left() instance:kube_node_role{role=~\"$noderole\"})",
           "hide": false,
           "interval": "",
           "legendFormat": "{{node}}",
@@ -617,7 +617,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
-          "expr": "sum by (node) (kube_node_status_condition{condition=\"NetworkUnavailable\", status!=\"false\"} * on(node) group_left() (sum by (node, role) (kube_node_role{role=~\"$noderole\"}))) or vector(0)",
+          "expr": "sum by (node) (kube_node_status_condition{condition=\"NetworkUnavailable\", status!=\"false\"} * on(node) group_left() instance:kube_node_role{role=~\"$noderole\"}) or vector(0)",
           "hide": false,
           "interval": "",
           "legendFormat": "{{node}}",
@@ -722,7 +722,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "sum by(node, operation_type) (rate(kubelet_runtime_operations_errors_total{cluster=\"\",job=\"kubelet\", metrics_path=\"/metrics\"}[5m]) * on(node) group_left() (sum by (node, role) (kube_node_role{role=~\"$noderole\"}))) or vector(0)",
+          "expr": "sum by(node, operation_type) (rate(kubelet_runtime_operations_errors_total{cluster=\"\",job=\"kubelet\", metrics_path=\"/metrics\"}[5m]) * on(node) group_left() instance:kube_node_role{role=~\"$noderole\"}) or vector(0)",
           "hide": false,
           "legendFormat": "{{node}}/{{operation_type}}",
           "range": true,
@@ -5419,7 +5419,7 @@
                 "uid": "${DS_PROMETHEUS}"
               },
               "editorMode": "code",
-              "expr": "sum by(node) (kube_pod_info) * on(node) group_left() kube_node_role{role=~\"$noderole\"}",
+              "expr": "sum by(node) (kube_pod_info) * on(node) group_left() instance:kube_node_role{role=~\"$noderole\"}",
               "instant": false,
               "legendFormat": "{{node}}",
               "range": true,
@@ -5523,7 +5523,7 @@
                 "uid": "${DS_PROMETHEUS}"
               },
               "exemplar": false,
-              "expr": "sum by (node) (kube_node_status_condition{condition=\"MemoryPressure\", status!=\"false\"} * on(node) group_left() kube_node_role{role=~\"$noderole\"})",
+              "expr": "sum by (node) (kube_node_status_condition{condition=\"MemoryPressure\", status!=\"false\"} * on(node) group_left() instance:kube_node_role{role=~\"$noderole\"})",
               "hide": false,
               "interval": "",
               "legendFormat": "{{node}}",
@@ -5627,7 +5627,7 @@
                 "uid": "${DS_PROMETHEUS}"
               },
               "exemplar": false,
-              "expr": "sum by (node) (kube_node_status_condition{condition=\"DiskPressure\", status!=\"false\"} * on(node) group_left() kube_node_role{role=~\"$noderole\"})",
+              "expr": "sum by (node) (kube_node_status_condition{condition=\"DiskPressure\", status!=\"false\"} * on(node) group_left() instance:kube_node_role{role=~\"$noderole\"})",
               "hide": false,
               "interval": "",
               "legendFormat": "{{node}}",
@@ -5731,7 +5731,7 @@
                 "uid": "${DS_PROMETHEUS}"
               },
               "exemplar": false,
-              "expr": "sum by (node) (kube_node_status_condition{condition=\"PIDPressure\", status!=\"false\"} * on(node) group_left() kube_node_role{role=~\"$noderole\"})",
+              "expr": "sum by (node) (kube_node_status_condition{condition=\"PIDPressure\", status!=\"false\"} * on(node) group_left() instance:kube_node_role{role=~\"$noderole\"})",
               "hide": false,
               "interval": "",
               "legendFormat": "{{node}}",
@@ -8992,7 +8992,7 @@
                 "uid": "${DS_PROMETHEUS}"
               },
               "exemplar": false,
-              "expr": "100\n/\n(\n  sum(kube_node_status_allocatable:memory:sum * on(node) group_left(role) kube_node_role{role=~\"$noderole\"})\n  -\n  sum(kube_node_status_allocatable:memory:avg * on(node) group_left(role) topk(1,kube_node_role{role=~\"$noderole\"})) * $sparenodesfactor\n)\n*\nsum(kube_pod_container_resource_limits:memory:running:namespace * on(node) group_left() kube_node_role{role=~\"$noderole\"})",
+              "expr": "100\n/\n(\n  sum(kube_node_status_allocatable:memory:sum * on(node) group_left(role) instance:kube_node_role{role=~\"$noderole\"})\n  -\n  sum(kube_node_status_allocatable:memory:avg * on(node) group_left(role) instance:kube_node_role{role=~\"$noderole\"}) * $sparenodesfactor\n)\n*\nsum(kube_pod_container_resource_limits:memory:running:namespace * on(node) group_left() instance:kube_node_role{role=~\"$noderole\"})",
               "hide": false,
               "interval": "",
               "legendFormat": "total",
@@ -9424,7 +9424,7 @@
                 "uid": "${DS_PROMETHEUS}"
               },
               "exemplar": false,
-              "expr": "sum(kube_pod_container_resource_limits:cpu:running:namespace{namespace=~\"kube-.*|cattle-.*|openshift-.*\"} * on(node) group_left() kube_node_role{role=~\"$noderole\"})",
+              "expr": "sum(kube_pod_container_resource_limits:cpu:running:namespace{namespace=~\"kube-.*|cattle-.*|openshift-.*\"} * on(node) group_left() instance:kube_node_role{role=~\"$noderole\"})",
               "hide": false,
               "interval": "",
               "legendFormat": "k8s (limits)",
@@ -11949,6 +11949,6 @@
   "timezone": "",
   "title": "Standard Cluster Monitoring",
   "uid": "ozk-std-clstr-mon",
-  "version": 12,
+  "version": 13,
   "weekStart": ""
 }
