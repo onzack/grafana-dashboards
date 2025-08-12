@@ -176,7 +176,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
-          "expr": "sum(kube_node_status_condition{condition!=\"Ready\", status!=\"false\"})\n+\nsum(kube_node_spec_unschedulable)",
+          "expr": "sum(kube_node_status_condition{condition!~\"(Ready|EtcdIsVoter)\", status!=\"false\"})\n+\nsum(kube_node_spec_unschedulable)",
           "hide": false,
           "instant": true,
           "interval": "",
