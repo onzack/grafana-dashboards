@@ -16,6 +16,12 @@ spec:
             OR 
             (kube_node_role{role!="control-plane"} * 1)
           )
+          /
+          max by (node, role) (
+            (kube_node_role{role="control-plane"} * 2) 
+            OR 
+            (kube_node_role{role!="control-plane"} * 1)
+          )
           * on(node) group_left(instance)
           label_replace(node_uname_info, "node", "$1", "nodename", "(.*)")
         )
