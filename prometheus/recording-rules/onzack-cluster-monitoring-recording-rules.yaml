@@ -7,7 +7,18 @@ spec:
   - name: common
     rules:
     - record: instance:kube_node_role
-      expr: topk by (node) (1,kube_node_role * on(node) group_left(instance) label_replace(node_uname_info, "node", "$1", "nodename", "(.*)"))
+      expr: |-
+        topk by (node) (1,
+          ## Workaround: There is a limitation of the topk() function when multiple series within a group have the same highest value, the function arbitrarily selects one, leading to inconsistent results.
+          ## Query that introduces a temporary priority multiplier (e.g., * 2) on the desired role and uses max by (node, role) to force the desired label set to win and be returned.
+          max by (node, role) (
+            (kube_node_role{role="control-plane"} * 2) 
+            OR 
+            (kube_node_role{role!="control-plane"} * 1)
+          )
+          * on(node) group_left(instance)
+          label_replace(node_uname_info, "node", "$1", "nodename", "(.*)")
+        )
   - name: cpu
     rules:
     - record: node_cpu_seconds_total:sum_rate5m
