@@ -33,7 +33,7 @@
       "collapsed": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "uid": "${datasource}"
       },
       "gridPos": {
         "h": 1,
@@ -1086,7 +1086,7 @@
           "refId": "A"
         }
       ],
-      "title": "Network Reveive",
+      "title": "Network Receive",
       "type": "stat"
     },
     {
@@ -1254,14 +1254,14 @@
           "refId": "B"
         }
       ],
-      "title": "Network Bandwith (receive & transmit) by Pod",
+      "title": "Network Bandwidth (receive & transmit) by Pod",
       "type": "timeseries"
     },
     {
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "uid": "${datasource}"
       },
       "gridPos": {
         "h": 1,
@@ -4601,7 +4601,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "uid": "${datasource}"
       },
       "gridPos": {
         "h": 1,
@@ -8340,7 +8340,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "uid": "${datasource}"
       },
       "gridPos": {
         "h": 1,
@@ -8556,7 +8556,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "uid": "${datasource}"
       },
       "gridPos": {
         "h": 1,
@@ -8764,7 +8764,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "uid": "${datasource}"
       },
       "gridPos": {
         "h": 1,
@@ -9434,7 +9434,7 @@
               "refId": "B"
             }
           ],
-          "title": "Read Storage Troughput by Node",
+          "title": "Read Storage Throughput by Node",
           "type": "timeseries"
         },
         {
@@ -9718,7 +9718,7 @@
               "refId": "C"
             }
           ],
-          "title": "Write Storage Troughput by Node",
+          "title": "Write Storage Throughput by Node",
           "type": "timeseries"
         },
         {
@@ -9917,7 +9917,7 @@
       "collapsed": true,
       "datasource": {
         "type": "prometheus",
-        "uid": "P1809F7CD0C75ACF3"
+        "uid": "${datasource}"
       },
       "gridPos": {
         "h": 1,
@@ -10277,7 +10277,7 @@
               "refId": "A"
             }
           ],
-          "title": "Reveive Network Bandwith by Node",
+          "title": "Receive Network Bandwidth by Node",
           "type": "timeseries"
         },
         {
@@ -10371,7 +10371,7 @@
               "refId": "A"
             }
           ],
-          "title": "Reveive Network Packets by Node",
+          "title": "Receive Network Packets by Node",
           "type": "timeseries"
         },
         {
@@ -10465,7 +10465,7 @@
               "refId": "A"
             }
           ],
-          "title": "Transmit Network Bandwith by Node",
+          "title": "Transmit Network Bandwidth by Node",
           "type": "timeseries"
         },
         {
@@ -10653,7 +10653,7 @@
               "refId": "A"
             }
           ],
-          "title": "Reveive Network Packets Dropped by Node",
+          "title": "Receive Network Packets Dropped by Node",
           "type": "timeseries"
         },
         {
