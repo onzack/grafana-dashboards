@@ -200,7 +200,7 @@
         "type": "prometheus",
         "uid": "${datasource}"
       },
-      "description": "Deployments = Replica missmatch  \nStatefulsets = Replica missmatch  \nDaemonsets = Replica missmatch  ",
+      "description": "Deployments = Replica mismatch  \nStatefulsets = Replica mismatch  \nDaemonsets = Replica mismatch  ",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1566,7 +1566,7 @@
           "refId": "C"
         }
       ],
-      "title": "Storage Troughput (read & write) by Pod",
+      "title": "Storage Throughput (read & write) by Pod",
       "type": "timeseries"
     },
     {
@@ -2596,7 +2596,7 @@
               "refId": "A"
             }
           ],
-          "title": "Deployments/ReplicaSets with Replica missmatch",
+          "title": "Deployments/ReplicaSets with Replica mismatch",
           "type": "timeseries"
         },
         {
@@ -2701,7 +2701,7 @@
               "refId": "A"
             }
           ],
-          "title": "StatefulSets with Replica missmatch",
+          "title": "StatefulSets with Replica mismatch",
           "type": "timeseries"
         },
         {
@@ -7519,7 +7519,7 @@
               "refId": "B"
             }
           ],
-          "title": "Read Storage Troughput by Container",
+          "title": "Read Storage Throughput by Container",
           "type": "timeseries"
         },
         {
@@ -7625,7 +7625,7 @@
               "refId": "C"
             }
           ],
-          "title": "Write Storage Troughput by Container",
+          "title": "Write Storage Throughput by Container",
           "type": "timeseries"
         },
         {
