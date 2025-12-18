@@ -4105,7 +4105,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "-b3i3M17z"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "sum by (container, target_kind, target_name) (kube_verticalpodautoscaler_status_recommendation_containerrecommendations_target{namespace=\"$namespace\", resource=\"cpu\"})",
@@ -4202,7 +4202,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "-b3i3M17z"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "sum by (container, target_kind, target_name) (kube_verticalpodautoscaler_status_recommendation_containerrecommendations_target{namespace=\"$namespace\", resource=\"memory\"})",
