@@ -1099,7 +1099,7 @@
           "refId": "C"
         }
       ],
-      "title": "Storage Troughput (read & write) by Pod",
+      "title": "Storage Throughput (read & write) by Pod",
       "type": "timeseries"
     },
     {
@@ -1163,7 +1163,7 @@
           "refId": "A"
         }
       ],
-      "title": "Network Bandwidth Reveive",
+      "title": "Network Bandwidth Receive",
       "type": "stat"
     },
     {
@@ -1330,7 +1330,7 @@
           "refId": "B"
         }
       ],
-      "title": "Network Bandwith (receive & transmit) by Pod",
+      "title": "Network Bandwidth (receive & transmit) by Pod",
       "type": "timeseries"
     },
     {
@@ -4105,7 +4105,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "-b3i3M17z"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "sum by (container, target_kind, target_name) (kube_verticalpodautoscaler_status_recommendation_containerrecommendations_target{namespace=\"$namespace\", resource=\"cpu\"})",
@@ -4202,7 +4202,7 @@
             {
               "datasource": {
                 "type": "prometheus",
-                "uid": "-b3i3M17z"
+                "uid": "${datasource}"
               },
               "exemplar": false,
               "expr": "sum by (container, target_kind, target_name) (kube_verticalpodautoscaler_status_recommendation_containerrecommendations_target{namespace=\"$namespace\", resource=\"memory\"})",
@@ -4914,7 +4914,7 @@
               "refId": "A"
             }
           ],
-          "title": "Reveive Network Bandwith by Pod",
+          "title": "Receive Network Bandwidth by Pod",
           "type": "timeseries"
         },
         {
@@ -5008,7 +5008,7 @@
               "refId": "A"
             }
           ],
-          "title": "Reveive Network Packets by Pod",
+          "title": "Receive Network Packets by Pod",
           "type": "timeseries"
         },
         {
@@ -5102,7 +5102,7 @@
               "refId": "A"
             }
           ],
-          "title": "Transmit Network Bandwith by Pod",
+          "title": "Transmit Network Bandwidth by Pod",
           "type": "timeseries"
         },
         {
@@ -5290,7 +5290,7 @@
               "refId": "A"
             }
           ],
-          "title": "Reveive Network Packets Dropped by Pod",
+          "title": "Receive Network Packets Dropped by Pod",
           "type": "timeseries"
         },
         {
@@ -5772,7 +5772,7 @@
               "refId": "B"
             }
           ],
-          "title": "Read Storage Troughput by Container",
+          "title": "Read Storage Throughput by Container",
           "type": "timeseries"
         },
         {
@@ -5962,7 +5962,7 @@
               "refId": "C"
             }
           ],
-          "title": "Write Storage Troughput by Container",
+          "title": "Write Storage Throughput by Container",
           "type": "timeseries"
         },
         {
