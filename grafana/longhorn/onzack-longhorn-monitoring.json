@@ -210,7 +210,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "count(longhorn_volume_robustness{volume=~\"$volume\"}==1) OR on() vector(0)",
+          "expr": "count(\r\n  (longhorn_volume_robustness{volume=~\"$volume\"} == 1)\r\n  or\r\n  (longhorn_volume_robustness{volume=~\"$volume\", robustness=\"healthy\"} == 1)\r\n) OR on() vector(0)",
           "interval": "",
           "legendFormat": "",
           "range": true,
@@ -383,7 +383,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "count(longhorn_volume_robustness{volume=~\"$volume\"}==2) OR on() vector(0)",
+          "expr": "count(\r\n  (longhorn_volume_robustness{volume=~\"$volume\"} == 2)\r\n  or\r\n  (longhorn_volume_robustness{volume=~\"$volume\", robustness=\"degraded\"} == 1)\r\n) OR on() vector(0)",
           "interval": "",
           "legendFormat": "",
           "range": true,
@@ -450,7 +450,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "count(longhorn_volume_robustness{volume=~\"$volume\"}==3) OR on() vector(0)",
+          "expr": "count(\r\n  (longhorn_volume_robustness{volume=~\"$volume\"} == 3)\r\n  or\r\n  (longhorn_volume_robustness{volume=~\"$volume\", robustness=\"faulted\"} == 1)\r\n) OR on() vector(0)",
           "interval": "",
           "legendFormat": "",
           "range": true,
@@ -623,7 +623,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "100 *\r\n  label_replace(\r\n    avg by (volume, namespace, persistentvolumeclaim) (kubelet_volume_stats_used_bytes),\r\n    \"pvc\", \"$1\", \"persistentvolumeclaim\", \"(.*)\"\r\n  )\r\n/ on (namespace, pvc)\r\n  (\r\n    label_replace(\r\n      avg by (pvc_namespace, pvc, volume) (longhorn_volume_capacity_bytes{volume=~\"$volume\"}),\r\n      \"namespace\", \"$1\", \"pvc_namespace\", \"(.*)\"\r\n    )\r\n    and on (volume)\r\n      (longhorn_volume_state != 3)\r\n  )",
+          "expr": "100 *\r\n  label_replace(\r\n    avg by (volume, namespace, persistentvolumeclaim) (kubelet_volume_stats_used_bytes),\r\n    \"pvc\", \"$1\", \"persistentvolumeclaim\", \"(.*)\"\r\n  )\r\n/ on (namespace, pvc)\r\n  (\r\n    label_replace(\r\n      avg by (pvc_namespace, pvc, volume) (longhorn_volume_capacity_bytes{volume=~\"$volume\"}),\r\n      \"namespace\", \"$1\", \"pvc_namespace\", \"(.*)\"\r\n    )\r\n    and on (volume)\r\n      (\r\n        (longhorn_volume_state != 3)\r\n        or\r\n        (longhorn_volume_state{state!=\"detached\"} == 1)\r\n      )\r\n  )",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -748,7 +748,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "count(longhorn_volume_state{volume=~\"$volume\"}==2) OR on() vector(0)",
+          "expr": "count(\r\n  (longhorn_volume_state{volume=~\"$volume\"} == 2)\r\n  or\r\n  (longhorn_volume_state{volume=~\"$volume\", state=\"attached\"} == 1)\r\n) OR on() vector(0)",
           "interval": "",
           "legendFormat": "",
           "range": true,
@@ -815,7 +815,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "count(longhorn_volume_state{volume=~\"$volume\"}==3) OR on() vector(0)",
+          "expr": "count(\r\n  (longhorn_volume_state{volume=~\"$volume\"} == 3)\r\n  or\r\n  (longhorn_volume_state{volume=~\"$volume\", state=\"detached\"} == 1)\r\n) OR on() vector(0)",
           "interval": "",
           "legendFormat": "",
           "range": true,
@@ -1410,7 +1410,7 @@
                 "uid": "${DS_PROMETHEUS}"
               },
               "exemplar": true,
-              "expr": "count by (node) (longhorn_volume_state==2)",
+              "expr": "count by (node) (\r\n  (longhorn_volume_state == 2)\r\n  or\r\n  (longhorn_volume_state{state=\"attached\"} == 1)\r\n)",
               "interval": "",
               "legendFormat": "",
               "refId": "A"
