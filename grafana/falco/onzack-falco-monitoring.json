@@ -15,7 +15,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "11.2.0"
+      "version": "12.2.1"
     },
     {
       "type": "panel",
@@ -27,19 +27,13 @@
       "type": "datasource",
       "id": "loki",
       "name": "Loki",
-      "version": "1.0.0"
+      "version": "12.2.1"
     },
     {
       "type": "panel",
       "id": "piechart",
       "name": "Pie chart",
       "version": ""
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
     },
     {
       "type": "panel",
@@ -85,11 +79,8 @@
   "description": "Grafana dashboard for Falco output events",
   "editable": true,
   "fiscalYearStartMonth": 0,
-  "gnetId": 11914,
   "graphTooltip": 0,
-  "id": null,
   "links": [],
-  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
@@ -120,7 +111,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               }
             ]
           }
@@ -151,7 +142,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.2.1",
       "targets": [
         {
           "datasource": {
@@ -215,11 +206,14 @@
           "fields": "",
           "values": false
         },
+        "sort": "desc",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.2.1",
       "targets": [
         {
           "datasource": {
@@ -284,11 +278,14 @@
           "fields": "",
           "values": false
         },
+        "sort": "desc",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
+      "pluginVersion": "12.2.1",
       "targets": [
         {
           "datasource": {
@@ -353,12 +350,14 @@
           "fields": "",
           "values": false
         },
+        "sort": "desc",
         "tooltip": {
+          "hideZeros": false,
           "mode": "single",
           "sort": "none"
         }
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "12.2.1",
       "targets": [
         {
           "datasource": {
@@ -413,6 +412,7 @@
               "type": "linear"
             },
             "showPoints": "auto",
+            "showValues": false,
             "spanNulls": false,
             "stacking": {
               "group": "A",
@@ -428,7 +428,7 @@
             "steps": [
               {
                 "color": "green",
-                "value": null
+                "value": 0
               },
               {
                 "color": "red",
@@ -459,11 +459,12 @@
           "showLegend": true
         },
         "tooltip": {
+          "hideZeros": false,
           "mode": "multi",
           "sort": "none"
         }
       },
-      "pluginVersion": "8.5.3",
+      "pluginVersion": "12.2.1",
       "targets": [
         {
           "datasource": {
@@ -498,6 +499,9 @@
               "type": "auto"
             },
             "filterable": false,
+            "footer": {
+              "reducers": []
+            },
             "inspect": false
           },
           "mappings": [],
@@ -508,7 +512,7 @@
             "steps": [
               {
                 "color": "orange",
-                "value": null
+                "value": 0
               }
             ]
           }
@@ -540,14 +544,6 @@
       "id": 16,
       "options": {
         "cellHeight": "sm",
-        "footer": {
-          "countRows": false,
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
         "showHeader": true,
         "sortBy": [
           {
@@ -556,19 +552,33 @@
           }
         ]
       },
-      "pluginVersion": "11.2.0",
+      "pluginVersion": "12.2.1",
       "targets": [
         {
           "datasource": {
             "type": "loki",
             "uid": "${DS_LOKI}"
           },
+          "direction": "backward",
           "editorMode": "code",
-          "expr": "sum by (k8s_pod_name,k8s_ns) (\r\n  count_over_time({$filter_falco_logs,priority=~\"$priority\",priority!=\"Debug\"} \r\n    | logfmt | __error__ = \"\" \r\n    | container!=\"host\", k8s_pod_name!=\"<NA>)\" \r\n    | label_format k8s_pod_name=`{{ .k8s_pod_name | replace \")\" \"\" }}`[$__range]   # Replace \")\" in pod name with \"\"\r\n  )\r\n)",
+          "expr": "sum by (k8s_pod_name,k8s_ns) (\r\n  count_over_time({$filter_falco_logs,priority=~\"$priority\",priority!=\"Debug\"} \r\n    | logfmt | __error__ = \"\" \r\n    | container!=\"host\", k8s_pod_name!=\"<NA>\" \r\n    | label_format k8s_pod_name=`{{ .k8s_pod_name | replace \")\" \"\" }}`[$__range]   # Replace \")\" in pod name with \"\"\r\n  )\r\n)",
           "hide": false,
           "legendFormat": "",
           "queryType": "range",
           "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "${datasource}"
+          },
+          "direction": "backward",
+          "editorMode": "code",
+          "expr": "sum by (k8smeta_pod_name,k8smeta_ns_name) (\r\n  count_over_time({$filter_falco_logs,priority=~\"$priority\",priority!=\"Debug\"} \r\n    | logfmt | __error__ = \"\" \r\n    | container!=\"host\", k8smeta_pod_name!=\"<NA>\" \r\n    | label_format k8smeta_pod_name=`{{ .k8smeta_pod_name | replace \")\" \"\" }}`[$__range]   # Replace \")\" in pod name with \"\"\r\n  )\r\n)",
+          "hide": false,
+          "legendFormat": "",
+          "queryType": "range",
+          "refId": "A"
         }
       ],
       "title": "Top $top Pods",
@@ -640,7 +650,11 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "${datasource}"
+            "uid": "${DS_LOKI}"
+          },
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
           },
           "gridPos": {
             "h": 22,
@@ -651,6 +665,7 @@
           "id": 11,
           "options": {
             "dedupStrategy": "none",
+            "enableInfiniteScrolling": false,
             "enableLogDetails": true,
             "prettifyLogMessage": false,
             "showCommonLabels": false,
@@ -659,12 +674,12 @@
             "sortOrder": "Descending",
             "wrapLogMessage": false
           },
-          "pluginVersion": "8.5.3",
+          "pluginVersion": "12.2.1",
           "targets": [
             {
               "datasource": {
                 "type": "loki",
-                "uid": "${DS_LOKI}"
+                "uid": "${datasource}"
               },
               "expr": "{from=\"falcosidekick\",priority=~\"$priority\"} |~ \"(?i)$searchpattern\"\n| line_format `{{ if eq .priority \"Emergency\" }} ❌ {{ else if eq .priority \"Alert\" }} ❌ {{ else if eq .priority \"Critical\" }} ❌ {{ else if eq .priority \"Error\" }} 🔴 {{ else if eq .priority \"Warning\" }} 🟠 {{ else if eq .priority \"Notice\" }} 🟡 {{ else if eq .priority \"Informational\" }} 🔵 {{ else if eq .priority \"Debug\" }} 🟣 {{__line__}} {{else}} ⚪ {{end}} {{__line__}}`",
               "queryType": "range",
@@ -672,7 +687,6 @@
             }
           ],
           "title": "Logs",
-          "transformations": [],
           "type": "logs"
         }
       ],
@@ -681,7 +695,7 @@
     }
   ],
   "refresh": "",
-  "schemaVersion": 39,
+  "schemaVersion": 42,
   "tags": [
     "Security",
     "Runtime"
@@ -690,29 +704,23 @@
     "list": [
       {
         "current": {},
-        "hide": 0,
         "includeAll": false,
         "label": "Datasource",
-        "multi": false,
         "name": "datasource",
         "options": [],
         "query": "loki",
-        "queryValue": "",
         "refresh": 1,
         "regex": "",
-        "skipUrlSync": false,
         "type": "datasource"
       },
       {
         "current": {
-          "selected": false,
           "text": "from=\"falcosidekick\"",
           "value": "from=\"falcosidekick\""
         },
         "description": "LogQL filter to get only Falco logs.",
         "hide": 2,
         "includeAll": false,
-        "multi": false,
         "name": "filter_falco_logs",
         "options": [
           {
@@ -722,17 +730,15 @@
           }
         ],
         "query": "from=\"falcosidekick\"",
-        "skipUrlSync": false,
         "type": "custom"
       },
       {
         "current": {},
         "datasource": {
           "type": "loki",
-          "uid": "${datasource}"
+          "uid": "${DS_LOKI}"
         },
         "definition": "",
-        "hide": 0,
         "includeAll": true,
         "label": "Priority",
         "multi": true,
@@ -746,21 +752,17 @@
         },
         "refresh": 2,
         "regex": "",
-        "skipUrlSync": false,
         "sort": 1,
         "type": "query"
       },
       {
         "current": {
-          "selected": false,
           "text": "10",
           "value": "10"
         },
         "description": "this variable is only for the Top Panel!",
-        "hide": 0,
         "includeAll": false,
         "label": "Top",
-        "multi": false,
         "name": "top",
         "options": [
           {
@@ -785,18 +787,14 @@
           }
         ],
         "query": "5,10,20,50",
-        "queryValue": "",
-        "skipUrlSync": false,
         "type": "custom"
       },
       {
         "current": {
-          "selected": true,
           "text": "",
           "value": ""
         },
         "description": "this variable is only for the Logs Panel!",
-        "hide": 0,
         "label": "Search-Pattern",
         "name": "searchpattern",
         "options": [
@@ -807,7 +805,6 @@
           }
         ],
         "query": "",
-        "skipUrlSync": false,
         "type": "textbox"
       }
     ]
@@ -820,6 +817,7 @@
   "timezone": "",
   "title": "Falco",
   "uid": "ozk-flc-mon",
-  "version": 11,
-  "weekStart": ""
+  "version": 12,
+  "weekStart": "",
+  "id": null
 }
