@@ -85,7 +85,7 @@
         "name": "OOMKills",
         "tagKeys": "container",
         "target": {
-          "expr": "(changes(kube_pod_container_status_restarts_total{}[$__rate_interval]) > 0)\nand on (namespace, pod, container)\n(kube_pod_container_status_last_terminated_reason{reason=\"OOMKilled\"} == 1)",
+          "expr": "(changes(kube_pod_container_status_restarts_total{namespace=~\"$namespace\"}[$__rate_interval]) > 0)\nand on (namespace, pod, container)\n(kube_pod_container_status_last_terminated_reason{reason=\"OOMKilled\"} == 1)",
           "interval": "",
           "refId": "Anno"
         },
