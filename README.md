@@ -75,6 +75,7 @@ This dashboard gives a good overview of the events and performance of Velero.
 
 Monitor state of systemd services running on the node.
 
+- [Download from grafana.com](https://grafana.com/grafana/dashboards/25304)
 - [Download from github.com](https://github.com/onzack/grafana-dashboards/blob/main/grafana/systemd/onzack-systemd-monitoring.json)
 
 ### Prerequisites
