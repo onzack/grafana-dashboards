@@ -27,6 +27,7 @@ kubectl label node <YOUR-CONTROLPLANENODE> node-role.kubernetes.io/control-plane
 - [Download from github.com](https://github.com/onzack/grafana-dashboards/blob/main/grafana/kubernetes/with-recording-rules/standard-namespace-monitoring.json) ONZACK Namespace Monitoring Dashboard with recording rules
 - [Download from github.com](https://github.com/onzack/grafana-dashboards/blob/main/prometheus/recording-rules/onzack-namespace-monitoring-recording-rules.yaml): Prometheus Recording Rules for ONZACK Namespace Monitoring Dashboard
 
+
 ## Falco Monitoring
 ![ONZACK Falco Monitoring](docs/onzack-falco-monitoring.png)
 
