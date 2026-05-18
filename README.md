@@ -8,8 +8,8 @@ ONZACK worked with LGT Bank in Liechtenstein to create two Grafana dashboards fo
 ![ONZACK Cluster Monitoring](docs/onzack-cluster-monitoring.png)
 
 - [Download from grafana.com](https://grafana.com/grafana/dashboards/17404): ONZACK Cluster Monitoring Dashboard with recording rules
-- [Download](https://github.com/onzack/grafana-dashboards/blob/main/grafana/kubernetes/with-recording-rules/standard-cluster-monitoring.json): ONZACK Cluster Monitoring Dashboard with recording rules
-- [Download](https://github.com/onzack/grafana-dashboards/blob/main/prometheus/recording-rules/onzack-cluster-monitoring-recording-rules.yaml): Prometheus Recording Rules for ONZACK Cluster Monitoring Dashboard
+- [Download from github.com](https://github.com/onzack/grafana-dashboards/blob/main/grafana/kubernetes/with-recording-rules/standard-cluster-monitoring.json): ONZACK Cluster Monitoring Dashboard with recording rules
+- [Download from github.com](https://github.com/onzack/grafana-dashboards/blob/main/prometheus/recording-rules/onzack-cluster-monitoring-recording-rules.yaml): Prometheus Recording Rules for ONZACK Cluster Monitoring Dashboard
 
 #### Troubleshooting
 - When using our dashboard with kube-prometheus-stack installed with helm and the custom rules are installed as yaml files, set `ruleSelectorNilUsesHelmValues: false` in the values.yaml for prometheus to load them.
