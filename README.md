@@ -34,6 +34,8 @@ kubectl label node <YOUR-CONTROLPLANENODE> node-role.kubernetes.io/control-plane
 
 ### Namespace Logs
 
+![ONZACK Namespace Logs](docs/onzack-namespace-logs.png)
+
 Container logs of a single namespace, searchable without writing LogQL. It is meant for teams who own a namespace but do not work with Loki every day: pick the namespace, narrow it down by pod or container, type a search term, and read the lines. The two counters and the rate graph tell you whether something changed and when it started.
 
 - [Download from github.com](https://github.com/onzack/grafana-dashboards/blob/main/grafana/kubernetes/logs/standard-namespace-logs.json): ONZACK Namespace Logs Dashboard
