@@ -32,6 +32,28 @@ kubectl label node <YOUR-CONTROLPLANENODE> node-role.kubernetes.io/control-plane
 - [Download from github.com](https://github.com/onzack/grafana-dashboards/blob/main/grafana/kubernetes/with-recording-rules/standard-namespace-monitoring.json) ONZACK Namespace Monitoring Dashboard with recording rules
 - [Download from github.com](https://github.com/onzack/grafana-dashboards/blob/main/prometheus/recording-rules/onzack-namespace-monitoring-recording-rules.yaml): Prometheus Recording Rules for ONZACK Namespace Monitoring Dashboard
 
+### Namespace Logs
+
+Container logs of a single namespace, searchable without writing LogQL. It is meant for teams who own a namespace but do not work with Loki every day: pick the namespace, narrow it down by pod or container, type a search term, and read the lines. The two counters and the rate graph tell you whether something changed and when it started.
+
+- [Download from github.com](https://github.com/onzack/grafana-dashboards/blob/main/grafana/kubernetes/logs/standard-namespace-logs.json): ONZACK Namespace Logs Dashboard
+
+#### Prerequisites
+
+- [Loki](https://github.com/grafana/loki) (Datasource)
+- A collector that ships container logs with the labels `namespace`, `pod` and `container`, for example [Promtail](https://grafana.com/docs/loki/latest/send-data/promtail/), [Grafana Alloy](https://grafana.com/docs/alloy/latest/) or the [k8s-monitoring](https://github.com/grafana/k8s-monitoring-helm) Helm chart
+
+#### Label names
+
+The dashboard uses the label names a Kubernetes collector produces by default. If your logs are indexed under different names, adjust the `namespace`, `pod` and `container` labels in the four panel queries and in the three variable queries.
+
+On OpenShift with Red Hat OpenShift Logging, the ViaQ data model applies and the names become `kubernetes_namespace_name`, `kubernetes_pod_name` and `kubernetes_container_name`. Keep the namespace label in every query there: the LokiStack gateway derives its authorization from it, so a user with namespace scoped access gets no logs at all from a query without it.
+
+#### Filters
+
+- `Search` and `Exclude` are case insensitive regular expressions applied to the whole log line.
+- Leave `Exclude` at `^$`. An empty value matches every line and would filter out all logs.
+
 ## Falco Monitoring
 
 ![ONZACK Falco Monitoring](docs/onzack-falco-monitoring.png)
