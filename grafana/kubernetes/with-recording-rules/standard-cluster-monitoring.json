@@ -21,7 +21,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "13.0.1"
+      "version": "12.4.11"
     },
     {
       "type": "datasource",
@@ -33,6 +33,12 @@
       "type": "panel",
       "id": "stat",
       "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "state-timeline",
+      "name": "State timeline",
       "version": ""
     },
     {
@@ -106,7 +112,6 @@
       "url": "https://github.com/onzack/grafana-dashboards"
     }
   ],
-  "liveNow": false,
   "panels": [
     {
       "collapsed": false,
@@ -117,6 +122,7 @@
         "y": 0
       },
       "id": 222,
+      "panels": [],
       "title": "Overview",
       "type": "row"
     },
@@ -130,6 +136,7 @@
           "color": {
             "mode": "thresholds"
           },
+          "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -174,7 +181,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -236,6 +243,7 @@
               "mode": "off"
             }
           },
+          "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -282,7 +290,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -357,6 +365,7 @@
               "mode": "off"
             }
           },
+          "mappings": [],
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -403,7 +412,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -479,6 +488,7 @@
               "mode": "area"
             }
           },
+          "mappings": [],
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -527,7 +537,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -589,6 +599,7 @@
               "mode": "area"
             }
           },
+          "mappings": [],
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -637,7 +648,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -699,6 +710,7 @@
               "mode": "area"
             }
           },
+          "mappings": [],
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -747,7 +759,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -774,6 +786,7 @@
           "color": {
             "mode": "thresholds"
           },
+          "mappings": [],
           "max": 100,
           "min": 0,
           "thresholds": {
@@ -832,7 +845,7 @@
         "sparkline": false,
         "textMode": "auto"
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -860,6 +873,7 @@
           "color": {
             "mode": "thresholds"
           },
+          "mappings": [],
           "max": 100,
           "min": 0,
           "thresholds": {
@@ -918,7 +932,7 @@
         "sparkline": false,
         "textMode": "auto"
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -980,6 +994,7 @@
               "mode": "off"
             }
           },
+          "mappings": [],
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -1022,7 +1037,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -1049,6 +1064,7 @@
           "color": {
             "mode": "thresholds"
           },
+          "mappings": [],
           "max": 100,
           "min": 0,
           "thresholds": {
@@ -1107,7 +1123,7 @@
         "sparkline": false,
         "textMode": "auto"
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -1135,6 +1151,7 @@
           "color": {
             "mode": "thresholds"
           },
+          "mappings": [],
           "max": 100,
           "min": 0,
           "thresholds": {
@@ -1193,7 +1210,7 @@
         "sparkline": false,
         "textMode": "auto"
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -1255,6 +1272,7 @@
               "mode": "off"
             }
           },
+          "mappings": [],
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -1298,7 +1316,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -1325,6 +1343,7 @@
           "color": {
             "mode": "thresholds"
           },
+          "mappings": [],
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -1363,7 +1382,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -1391,6 +1410,7 @@
           "color": {
             "mode": "thresholds"
           },
+          "mappings": [],
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -1429,7 +1449,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -1491,6 +1511,7 @@
               "mode": "off"
             }
           },
+          "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1529,7 +1550,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -1567,6 +1588,7 @@
           "color": {
             "mode": "thresholds"
           },
+          "mappings": [],
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -1605,7 +1627,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -1633,6 +1655,7 @@
           "color": {
             "mode": "thresholds"
           },
+          "mappings": [],
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -1671,7 +1694,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -1735,6 +1758,7 @@
               "mode": "off"
             }
           },
+          "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
@@ -1777,7 +1801,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "13.0.1",
+      "pluginVersion": "12.4.11",
       "targets": [
         {
           "datasource": {
@@ -1816,11 +1840,15 @@
       "id": 223,
       "panels": [
         {
+          "fieldConfig": {
+            "defaults": {},
+            "overrides": []
+          },
           "gridPos": {
             "h": 3,
             "w": 22,
             "x": 0,
-            "y": 37
+            "y": 485
           },
           "id": 85,
           "options": {
@@ -1832,8 +1860,7 @@
             "content": "- CPU / Memory capacity = total hardware resources\n- CPU / Memory allocatable (brutto) = total allocatable  \n- CPU / Memory allocatable (netto) = total allocatable - cpu/mem reserve - spare nodes  \n  -> All requested, used and limits values are calculated with the allocatable (netto) values",
             "mode": "markdown"
           },
-          "pluginVersion": "13.0.1",
-          "targets": [],
+          "pluginVersion": "12.4.11",
           "title": "",
           "type": "text"
         },
@@ -1847,6 +1874,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -1860,13 +1888,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 2,
             "x": 22,
-            "y": 37
+            "y": 485
           },
           "id": 87,
           "options": {
@@ -1886,7 +1915,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -1913,6 +1942,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -1926,13 +1956,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 0,
-            "y": 40
+            "y": 488
           },
           "id": 215,
           "options": {
@@ -1952,7 +1983,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -1980,6 +2011,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -1993,13 +2025,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 3,
-            "y": 40
+            "y": 488
           },
           "id": 216,
           "options": {
@@ -2019,7 +2052,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -2047,6 +2080,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -2060,13 +2094,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 2,
             "x": 6,
-            "y": 40
+            "y": 488
           },
           "id": 203,
           "options": {
@@ -2086,7 +2121,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -2114,6 +2149,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -2127,13 +2163,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 2,
             "x": 8,
-            "y": 40
+            "y": 488
           },
           "id": 88,
           "options": {
@@ -2153,7 +2190,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -2181,6 +2218,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -2194,13 +2232,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 2,
             "x": 10,
-            "y": 40
+            "y": 488
           },
           "id": 204,
           "options": {
@@ -2220,7 +2259,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -2248,6 +2287,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -2262,13 +2302,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 12,
-            "y": 40
+            "y": 488
           },
           "id": 217,
           "options": {
@@ -2288,7 +2329,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -2316,6 +2357,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -2330,13 +2372,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 15,
-            "y": 40
+            "y": 488
           },
           "id": 218,
           "options": {
@@ -2356,7 +2399,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -2384,6 +2427,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -2398,13 +2442,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 2,
             "x": 18,
-            "y": 40
+            "y": 488
           },
           "id": 205,
           "options": {
@@ -2424,7 +2469,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -2452,6 +2497,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -2466,13 +2512,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 2,
             "x": 20,
-            "y": 40
+            "y": 488
           },
           "id": 90,
           "options": {
@@ -2492,7 +2539,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -2520,6 +2567,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -2534,13 +2582,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 2,
             "x": 22,
-            "y": 40
+            "y": 488
           },
           "id": 91,
           "options": {
@@ -2560,7 +2609,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -2588,6 +2637,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "max": 100,
               "min": 0,
               "thresholds": {
@@ -2608,13 +2658,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 4,
             "w": 3,
             "x": 0,
-            "y": 43
+            "y": 491
           },
           "id": 93,
           "options": {
@@ -2645,7 +2696,7 @@
             "sparkline": false,
             "textMode": "auto"
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -2673,6 +2724,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "max": 100,
               "min": 0,
               "thresholds": {
@@ -2693,13 +2745,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 4,
             "w": 3,
             "x": 3,
-            "y": 43
+            "y": 491
           },
           "id": 95,
           "options": {
@@ -2730,7 +2783,7 @@
             "sparkline": false,
             "textMode": "auto"
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -2758,6 +2811,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "max": 200,
               "min": 0,
               "thresholds": {
@@ -2778,13 +2832,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 4,
             "w": 3,
             "x": 6,
-            "y": 43
+            "y": 491
           },
           "id": 96,
           "options": {
@@ -2815,7 +2870,7 @@
             "sparkline": false,
             "textMode": "auto"
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -2843,6 +2898,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "max": 500,
               "min": 0,
               "thresholds": {
@@ -2859,13 +2915,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 4,
             "w": 3,
             "x": 9,
-            "y": 43
+            "y": 491
           },
           "id": 97,
           "options": {
@@ -2896,7 +2953,7 @@
             "sparkline": false,
             "textMode": "auto"
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -2924,6 +2981,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "max": 100,
               "min": 0,
               "thresholds": {
@@ -2944,13 +3002,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 4,
             "w": 3,
             "x": 12,
-            "y": 43
+            "y": 491
           },
           "id": 98,
           "options": {
@@ -2981,7 +3040,7 @@
             "sparkline": false,
             "textMode": "auto"
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -3009,6 +3068,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "max": 100,
               "min": 0,
               "thresholds": {
@@ -3029,13 +3089,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 4,
             "w": 3,
             "x": 15,
-            "y": 43
+            "y": 491
           },
           "id": 99,
           "options": {
@@ -3066,7 +3127,7 @@
             "sparkline": false,
             "textMode": "auto"
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -3094,6 +3155,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "max": 200,
               "min": 0,
               "thresholds": {
@@ -3114,13 +3176,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 4,
             "w": 3,
             "x": 18,
-            "y": 43
+            "y": 491
           },
           "id": 100,
           "options": {
@@ -3151,7 +3214,7 @@
             "sparkline": false,
             "textMode": "auto"
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -3179,6 +3242,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "max": 250,
               "min": 0,
               "thresholds": {
@@ -3195,13 +3259,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 4,
             "w": 3,
             "x": 21,
-            "y": 43
+            "y": 491
           },
           "id": 94,
           "options": {
@@ -3232,7 +3297,7 @@
             "sparkline": false,
             "textMode": "auto"
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -3260,6 +3325,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -3273,13 +3339,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 0,
-            "y": 47
+            "y": 495
           },
           "id": 110,
           "options": {
@@ -3299,7 +3366,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -3327,6 +3394,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -3340,13 +3408,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 3,
-            "y": 47
+            "y": 495
           },
           "id": 111,
           "options": {
@@ -3366,7 +3435,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -3394,6 +3463,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "noValue": "0",
               "thresholds": {
                 "mode": "absolute",
@@ -3408,13 +3478,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 6,
-            "y": 47
+            "y": 495
           },
           "id": 112,
           "options": {
@@ -3434,7 +3505,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -3461,6 +3532,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -3474,13 +3546,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 9,
-            "y": 47
+            "y": 495
           },
           "id": 113,
           "options": {
@@ -3500,7 +3573,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -3528,6 +3601,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -3542,13 +3616,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 12,
-            "y": 47
+            "y": 495
           },
           "id": 116,
           "options": {
@@ -3568,7 +3643,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -3596,6 +3671,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -3606,13 +3682,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 15,
-            "y": 47
+            "y": 495
           },
           "id": 121,
           "options": {
@@ -3632,7 +3709,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -3659,6 +3736,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "noValue": "0",
               "thresholds": {
                 "mode": "absolute",
@@ -3674,13 +3752,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 18,
-            "y": 47
+            "y": 495
           },
           "id": 123,
           "options": {
@@ -3700,7 +3779,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -3727,6 +3806,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -3741,13 +3821,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 21,
-            "y": 47
+            "y": 495
           },
           "id": 125,
           "options": {
@@ -3767,7 +3848,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -3794,6 +3875,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -3807,13 +3889,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 0,
-            "y": 50
+            "y": 498
           },
           "id": 106,
           "options": {
@@ -3833,7 +3916,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -3861,6 +3944,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -3874,13 +3958,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 3,
-            "y": 50
+            "y": 498
           },
           "id": 109,
           "options": {
@@ -3900,7 +3985,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -3927,6 +4012,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "noValue": "0",
               "thresholds": {
                 "mode": "absolute",
@@ -3941,13 +4027,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 6,
-            "y": 50
+            "y": 498
           },
           "id": 105,
           "options": {
@@ -3967,7 +4054,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -3994,6 +4081,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -4007,13 +4095,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 9,
-            "y": 50
+            "y": 498
           },
           "id": 108,
           "options": {
@@ -4033,7 +4122,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -4061,6 +4150,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -4075,13 +4165,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 12,
-            "y": 50
+            "y": 498
           },
           "id": 115,
           "options": {
@@ -4101,7 +4192,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -4129,6 +4220,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -4139,13 +4231,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 15,
-            "y": 50
+            "y": 498
           },
           "id": 120,
           "options": {
@@ -4165,7 +4258,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -4192,6 +4285,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "noValue": "0",
               "thresholds": {
                 "mode": "absolute",
@@ -4207,13 +4301,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 18,
-            "y": 50
+            "y": 498
           },
           "id": 122,
           "options": {
@@ -4233,7 +4328,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -4260,6 +4355,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -4274,13 +4370,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 21,
-            "y": 50
+            "y": 498
           },
           "id": 124,
           "options": {
@@ -4300,7 +4397,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -4327,6 +4424,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -4340,13 +4438,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 0,
-            "y": 53
+            "y": 501
           },
           "id": 101,
           "options": {
@@ -4366,7 +4465,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -4394,6 +4493,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -4407,13 +4507,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 3,
-            "y": 53
+            "y": 501
           },
           "id": 102,
           "options": {
@@ -4433,7 +4534,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -4460,6 +4561,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -4473,13 +4575,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 9,
-            "y": 53
+            "y": 501
           },
           "id": 103,
           "options": {
@@ -4499,7 +4602,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -4527,6 +4630,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -4541,13 +4645,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 12,
-            "y": 53
+            "y": 501
           },
           "id": 114,
           "options": {
@@ -4567,7 +4672,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -4595,6 +4700,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -4605,13 +4711,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 15,
-            "y": 53
+            "y": 501
           },
           "id": 117,
           "options": {
@@ -4631,7 +4738,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -4658,6 +4765,7 @@
               "color": {
                 "mode": "thresholds"
               },
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -4672,13 +4780,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 3,
             "w": 3,
             "x": 21,
-            "y": 53
+            "y": 501
           },
           "id": 119,
           "options": {
@@ -4698,7 +4807,7 @@
             "textMode": "auto",
             "wideLayout": true
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -4737,6 +4846,7 @@
                 "inspect": false,
                 "width": 140
               },
+              "mappings": [],
               "min": 0,
               "thresholds": {
                 "mode": "absolute",
@@ -4951,7 +5061,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 56
+            "y": 504
           },
           "id": 206,
           "options": {
@@ -4964,7 +5074,7 @@
               }
             ]
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -5159,6 +5269,7 @@
                 "inspect": false,
                 "width": 140
               },
+              "mappings": [],
               "min": 0,
               "thresholds": {
                 "mode": "absolute",
@@ -5374,7 +5485,7 @@
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 63
+            "y": 511
           },
           "id": 207,
           "options": {
@@ -5387,7 +5498,7 @@
               }
             ]
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -5603,6 +5714,7 @@
                 }
               },
               "decimals": 0,
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
@@ -5616,13 +5728,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 24,
             "x": 0,
-            "y": 70
+            "y": 518
           },
           "id": 220,
           "options": {
@@ -5649,7 +5762,7 @@
               "sort": "desc"
             }
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -5712,6 +5825,7 @@
                   "mode": "area"
                 }
               },
+              "mappings": [],
               "min": 0,
               "thresholds": {
                 "mode": "absolute",
@@ -5727,13 +5841,14 @@
                 ]
               },
               "unit": "short"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 24,
             "x": 0,
-            "y": 76
+            "y": 524
           },
           "id": 212,
           "options": {
@@ -5759,7 +5874,7 @@
               "sort": "none"
             }
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -5821,6 +5936,7 @@
                   "mode": "area"
                 }
               },
+              "mappings": [],
               "min": 0,
               "thresholds": {
                 "mode": "absolute",
@@ -5836,13 +5952,14 @@
                 ]
               },
               "unit": "short"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 24,
             "x": 0,
-            "y": 82
+            "y": 530
           },
           "id": 211,
           "options": {
@@ -5868,7 +5985,7 @@
               "sort": "none"
             }
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -5930,6 +6047,7 @@
                   "mode": "area"
                 }
               },
+              "mappings": [],
               "min": 0,
               "thresholds": {
                 "mode": "absolute",
@@ -5945,13 +6063,14 @@
                 ]
               },
               "unit": "short"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 24,
             "x": 0,
-            "y": 88
+            "y": 536
           },
           "id": 213,
           "options": {
@@ -5977,7 +6096,7 @@
               "sort": "none"
             }
           },
-          "pluginVersion": "13.0.1",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -6038,13 +6157,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 3,
             "x": 0,
-            "y": 38
+            "y": 578
           },
           "id": 155,
           "options": {
@@ -6159,13 +6279,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 10,
             "x": 3,
-            "y": 38
+            "y": 578
           },
           "id": 156,
           "options": {
@@ -6269,13 +6390,14 @@
                 ]
               },
               "unit": "none"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 11,
             "x": 13,
-            "y": 38
+            "y": 578
           },
           "id": 137,
           "options": {
@@ -6365,13 +6487,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 3,
             "x": 0,
-            "y": 44
+            "y": 584
           },
           "id": 170,
           "options": {
@@ -6485,13 +6608,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 10,
             "x": 3,
-            "y": 44
+            "y": 584
           },
           "id": 171,
           "options": {
@@ -6595,13 +6719,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 11,
             "x": 13,
-            "y": 44
+            "y": 584
           },
           "id": 172,
           "options": {
@@ -6691,13 +6816,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 3,
             "x": 0,
-            "y": 50
+            "y": 590
           },
           "id": 157,
           "options": {
@@ -6811,13 +6937,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 10,
             "x": 3,
-            "y": 50
+            "y": 590
           },
           "id": 142,
           "options": {
@@ -6932,13 +7059,14 @@
                 ]
               },
               "unit": "none"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 11,
             "x": 13,
-            "y": 50
+            "y": 590
           },
           "id": 154,
           "options": {
@@ -7039,13 +7167,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 3,
             "x": 0,
-            "y": 56
+            "y": 596
           },
           "id": 173,
           "options": {
@@ -7159,13 +7288,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 10,
             "x": 3,
-            "y": 56
+            "y": 596
           },
           "id": 174,
           "options": {
@@ -7280,13 +7410,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 11,
             "x": 13,
-            "y": 56
+            "y": 596
           },
           "id": 175,
           "options": {
@@ -7387,13 +7518,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 3,
             "x": 0,
-            "y": 62
+            "y": 602
           },
           "id": 158,
           "options": {
@@ -7507,13 +7639,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 10,
             "x": 3,
-            "y": 62
+            "y": 602
           },
           "id": 159,
           "options": {
@@ -7617,13 +7750,14 @@
                 ]
               },
               "unit": "none"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 11,
             "x": 13,
-            "y": 62
+            "y": 602
           },
           "id": 160,
           "options": {
@@ -7723,13 +7857,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 3,
             "x": 0,
-            "y": 68
+            "y": 608
           },
           "id": 176,
           "options": {
@@ -7828,13 +7963,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 10,
             "x": 3,
-            "y": 68
+            "y": 608
           },
           "id": 177,
           "options": {
@@ -7931,13 +8067,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 11,
             "x": 13,
-            "y": 68
+            "y": 608
           },
           "id": 178,
           "options": {
@@ -8028,13 +8165,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 3,
             "x": 0,
-            "y": 74
+            "y": 614
           },
           "id": 161,
           "options": {
@@ -8128,13 +8266,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 10,
             "x": 3,
-            "y": 74
+            "y": 614
           },
           "id": 162,
           "options": {
@@ -8231,13 +8370,14 @@
                 ]
               },
               "unit": "none"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 11,
             "x": 13,
-            "y": 74
+            "y": 614
           },
           "id": 163,
           "options": {
@@ -8380,13 +8520,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 80
+            "y": 620
           },
           "id": 201,
           "options": {
@@ -8452,13 +8593,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 3,
             "x": 0,
-            "y": 88
+            "y": 628
           },
           "id": 179,
           "options": {
@@ -8553,13 +8695,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 10,
             "x": 3,
-            "y": 88
+            "y": 628
           },
           "id": 180,
           "options": {
@@ -8656,13 +8799,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 11,
             "x": 13,
-            "y": 88
+            "y": 628
           },
           "id": 181,
           "options": {
@@ -8806,13 +8950,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 94
+            "y": 634
           },
           "id": 202,
           "options": {
@@ -8877,13 +9022,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 3,
             "x": 0,
-            "y": 102
+            "y": 642
           },
           "id": 164,
           "options": {
@@ -8977,13 +9123,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 10,
             "x": 3,
-            "y": 102
+            "y": 642
           },
           "id": 165,
           "options": {
@@ -9080,13 +9227,14 @@
                 ]
               },
               "unit": "none"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 11,
             "x": 13,
-            "y": 102
+            "y": 642
           },
           "id": 166,
           "options": {
@@ -9166,13 +9314,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 3,
             "x": 0,
-            "y": 108
+            "y": 648
           },
           "id": 182,
           "options": {
@@ -9266,13 +9415,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 10,
             "x": 3,
-            "y": 108
+            "y": 648
           },
           "id": 183,
           "options": {
@@ -9380,13 +9530,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 11,
             "x": 13,
-            "y": 108
+            "y": 648
           },
           "id": 184,
           "options": {
@@ -9470,13 +9621,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 3,
             "x": 0,
-            "y": 114
+            "y": 654
           },
           "id": 167,
           "options": {
@@ -9575,13 +9727,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 10,
             "x": 3,
-            "y": 114
+            "y": 654
           },
           "id": 168,
           "options": {
@@ -9679,13 +9832,14 @@
                 ]
               },
               "unit": "none"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 11,
             "x": 13,
-            "y": 114
+            "y": 654
           },
           "id": 169,
           "options": {
@@ -9780,13 +9934,14 @@
                 ]
               },
               "unit": "percent"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 3,
             "x": 0,
-            "y": 120
+            "y": 660
           },
           "id": 185,
           "options": {
@@ -9885,13 +10040,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 10,
             "x": 3,
-            "y": 120
+            "y": 660
           },
           "id": 186,
           "options": {
@@ -9989,13 +10145,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 6,
             "w": 11,
             "x": 13,
-            "y": 120
+            "y": 660
           },
           "id": 187,
           "options": {
@@ -10132,13 +10289,14 @@
                   }
                 ]
               }
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 39
+            "y": 579
           },
           "id": 52,
           "options": {
@@ -10241,13 +10399,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 173
+            "y": 713
           },
           "id": 194,
           "options": {
@@ -10359,13 +10518,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 40
+            "y": 580
           },
           "id": 55,
           "options": {
@@ -10468,13 +10628,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 126
+            "y": 666
           },
           "id": 195,
           "options": {
@@ -10585,13 +10746,14 @@
                 ]
               },
               "unit": "bytes"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 41
+            "y": 581
           },
           "id": 57,
           "options": {
@@ -10694,13 +10856,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 49
+            "y": 589
           },
           "id": 198,
           "options": {
@@ -10805,13 +10968,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 57
+            "y": 597
           },
           "id": 221,
           "options": {
@@ -10912,13 +11076,14 @@
                 ]
               },
               "unit": "percentunit"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 65
+            "y": 605
           },
           "id": 199,
           "options": {
@@ -11017,13 +11182,14 @@
                 ]
               },
               "unit": "binBps"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 72
+            "y": 612
           },
           "id": 196,
           "options": {
@@ -11120,13 +11286,14 @@
                 ]
               },
               "unit": "binBps"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 80
+            "y": 620
           },
           "id": 56,
           "options": {
@@ -11223,13 +11390,14 @@
                 ]
               },
               "unit": "iops"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 88
+            "y": 628
           },
           "id": 70,
           "options": {
@@ -11325,13 +11493,14 @@
                 ]
               },
               "unit": "iops"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 96
+            "y": 636
           },
           "id": 71,
           "options": {
@@ -11427,13 +11596,14 @@
                 ]
               },
               "unit": "s"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 104
+            "y": 644
           },
           "id": 192,
           "options": {
@@ -11529,13 +11699,14 @@
                 ]
               },
               "unit": "s"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 112
+            "y": 652
           },
           "id": 193,
           "options": {
@@ -11623,6 +11794,7 @@
                   "type": "linear"
                 },
                 "showPoints": "never",
+                "showValues": false,
                 "spanNulls": false,
                 "stacking": {
                   "group": "A",
@@ -11633,11 +11805,13 @@
                 }
               },
               "decimals": 2,
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": 0
                   },
                   {
                     "color": "red",
@@ -11646,13 +11820,14 @@
                 ]
               },
               "unit": "binBps"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 42
+            "y": 220
           },
           "id": 83,
           "options": {
@@ -11676,7 +11851,7 @@
               "sort": "none"
             }
           },
-          "pluginVersion": "12.0.2",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -11727,6 +11902,7 @@
                   "type": "linear"
                 },
                 "showPoints": "never",
+                "showValues": false,
                 "spanNulls": false,
                 "stacking": {
                   "group": "A",
@@ -11737,11 +11913,13 @@
                 }
               },
               "decimals": 2,
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": 0
                   },
                   {
                     "color": "red",
@@ -11750,13 +11928,14 @@
                 ]
               },
               "unit": "binBps"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 49
+            "y": 279
           },
           "id": 54,
           "options": {
@@ -11780,7 +11959,7 @@
               "sort": "none"
             }
           },
-          "pluginVersion": "12.0.2",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -11831,6 +12010,7 @@
                   "type": "linear"
                 },
                 "showPoints": "never",
+                "showValues": false,
                 "spanNulls": false,
                 "stacking": {
                   "group": "A",
@@ -11841,11 +12021,13 @@
                 }
               },
               "decimals": 2,
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": 0
                   },
                   {
                     "color": "red",
@@ -11854,13 +12036,14 @@
                 ]
               },
               "unit": "pps"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 56
+            "y": 286
           },
           "id": 59,
           "options": {
@@ -11884,7 +12067,7 @@
               "sort": "none"
             }
           },
-          "pluginVersion": "12.0.2",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -11935,6 +12118,7 @@
                   "type": "linear"
                 },
                 "showPoints": "never",
+                "showValues": false,
                 "spanNulls": false,
                 "stacking": {
                   "group": "A",
@@ -11945,11 +12129,13 @@
                 }
               },
               "decimals": 2,
+              "mappings": [],
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": 0
                   },
                   {
                     "color": "red",
@@ -11958,13 +12144,14 @@
                 ]
               },
               "unit": "pps"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 63
+            "y": 293
           },
           "id": 60,
           "options": {
@@ -11988,7 +12175,7 @@
               "sort": "none"
             }
           },
-          "pluginVersion": "12.0.2",
+          "pluginVersion": "12.4.11",
           "targets": [
             {
               "datasource": {
@@ -12062,13 +12249,14 @@
                 ]
               },
               "unit": "pps"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 70
+            "y": 300
           },
           "id": 67,
           "options": {
@@ -12166,13 +12354,14 @@
                 ]
               },
               "unit": "pps"
-            }
+            },
+            "overrides": []
           },
           "gridPos": {
             "h": 7,
             "w": 24,
             "x": 0,
-            "y": 77
+            "y": 307
           },
           "id": 68,
           "options": {
@@ -12215,6 +12404,1094 @@
         }
       ],
       "title": "Network Monitoring",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "id": 229,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "decimals": 0,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "yellow",
+                    "value": 50
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 0,
+            "y": 221
+          },
+          "id": 240,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "12.4.11",
+          "targets": [
+            {
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "avg((1 - etcd_mvcc_db_total_size_in_use_in_bytes{job=~\".*etcd.*\"} / etcd_mvcc_db_total_size_in_bytes{job=~\".*etcd.*\"})) * 100",
+              "instant": true,
+              "legendFormat": "{{instance}}",
+              "range": false,
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
+            }
+          ],
+          "title": "Average etcd DB Fragmentation",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 6,
+            "x": 3,
+            "y": 221
+          },
+          "id": 241,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.11",
+          "targets": [
+            {
+              "editorMode": "code",
+              "expr": "label_replace((1 - etcd_mvcc_db_total_size_in_use_in_bytes{job=~\".*etcd.*\"} / etcd_mvcc_db_total_size_in_bytes{job=~\".*etcd.*\"}) * 100, \"host_ip\", \"$1\", \"instance\", \"([^:]+):.*\")\n* on (host_ip) group_left(node)\n  max by (host_ip, node) (kube_pod_info{namespace=\"kube-system\", pod=~\"etcd-.*\"})",
+              "legendFormat": "{{node}}",
+              "range": true,
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
+            }
+          ],
+          "title": "etcd DB Fragmentation",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "line",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "smooth",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "bytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 7,
+            "x": 9,
+            "y": 221
+          },
+          "id": 242,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.11",
+          "targets": [
+            {
+              "editorMode": "code",
+              "expr": "label_replace(etcd_mvcc_db_total_size_in_use_in_bytes{job=~\".*etcd.*\"}, \"host_ip\", \"$1\", \"instance\", \"([^:]+):.*\")\n* on (host_ip) group_left(node)\n  max by (host_ip, node) (kube_pod_info{namespace=\"kube-system\", pod=~\"etcd-.*\"})",
+              "legendFormat": "{{node}}",
+              "range": true,
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
+            }
+          ],
+          "title": "etcd DB Size (in use)",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "description": "It should stay low. Steady growth means the controllers aren't keeping up.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "barWidthFactor": 0.6,
+                "drawStyle": "bars",
+                "fillOpacity": 0,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "showValues": false,
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 8,
+            "x": 16,
+            "y": 221
+          },
+          "id": 239,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.11",
+          "targets": [
+            {
+              "editorMode": "code",
+              "expr": "sum by (name) (workqueue_depth{job=~\".*controller-manager.*\"}) > 1",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
+            }
+          ],
+          "title": "Controller Work Queue",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 0,
+            "y": 227
+          },
+          "id": 234,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "12.4.11",
+          "targets": [
+            {
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "round(max(increase(etcd_server_leader_changes_seen_total[$__range])))",
+              "instant": true,
+              "legendFormat": "{{node}}",
+              "range": false,
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
+            }
+          ],
+          "title": "etcd Leader Changes",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "text",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 3,
+            "y": 227
+          },
+          "id": 231,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "name",
+            "wideLayout": true
+          },
+          "pluginVersion": "12.4.11",
+          "targets": [
+            {
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "label_replace(etcd_server_is_leader == 1, \"host_ip\", \"$1\", \"instance\", \"([^:]+):.*\")\n* on (host_ip) group_left(node)\n  max by (host_ip, node) (kube_pod_info{namespace=\"kube-system\", pod=~\"etcd-.*\"})",
+              "instant": true,
+              "legendFormat": "{{node}}",
+              "range": false,
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
+            }
+          ],
+          "title": "Current etcd Leader",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "fixed"
+              },
+              "custom": {
+                "axisPlacement": "auto",
+                "fillOpacity": 70,
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineWidth": 0,
+                "spanNulls": false
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "color": "transparent",
+                      "index": 0,
+                      "text": "Follower"
+                    },
+                    "1": {
+                      "color": "green",
+                      "index": 1,
+                      "text": "Leader"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 18,
+            "x": 6,
+            "y": 227
+          },
+          "id": 230,
+          "options": {
+            "alignValue": "left",
+            "legend": {
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "mergeValues": true,
+            "rowHeight": 0.8,
+            "showValue": "never",
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.11",
+          "targets": [
+            {
+              "editorMode": "code",
+              "expr": "label_replace(etcd_server_is_leader == 1, \"host_ip\", \"$1\", \"instance\", \"([^:]+):.*\")\n* on (host_ip) group_left(node)\n  max by (host_ip, node) (kube_pod_info{namespace=\"kube-system\", pod=~\"etcd-.*\"})",
+              "legendFormat": "{{node}}",
+              "range": true,
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
+            }
+          ],
+          "title": "etcd Leader",
+          "type": "state-timeline"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 0,
+            "y": 233
+          },
+          "id": 237,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "12.4.11",
+          "targets": [
+            {
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum by (name) (changes(leader_election_master_status{name=~\"kube-controller-manager\"}[$__range])) / 2",
+              "instant": true,
+              "legendFormat": "{{node}}",
+              "range": false,
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
+            }
+          ],
+          "title": "Kube Controller Leader Changes",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "text",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 3,
+            "y": 233
+          },
+          "id": 232,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "name",
+            "wideLayout": true
+          },
+          "pluginVersion": "12.4.11",
+          "targets": [
+            {
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "label_replace(leader_election_master_status{name=~\"kube-controller-manager\"} == 1, \"host_ip\", \"$1\", \"instance\", \"([^:]+):.*\")\n* on (host_ip) group_left(node)\n  max by (host_ip, node) (kube_pod_info{namespace=\"kube-system\", pod=~\"etcd-.*\"})",
+              "instant": true,
+              "legendFormat": "{{node}}",
+              "range": false,
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
+            }
+          ],
+          "title": "Current Kube Controller Leader",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "fixed"
+              },
+              "custom": {
+                "axisPlacement": "auto",
+                "fillOpacity": 70,
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineWidth": 0,
+                "spanNulls": false
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "color": "transparent",
+                      "index": 0,
+                      "text": "Follower"
+                    },
+                    "1": {
+                      "color": "green",
+                      "index": 1,
+                      "text": "Leader"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 18,
+            "x": 6,
+            "y": 233
+          },
+          "id": 235,
+          "options": {
+            "alignValue": "left",
+            "legend": {
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "mergeValues": true,
+            "rowHeight": 0.8,
+            "showValue": "never",
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.11",
+          "targets": [
+            {
+              "editorMode": "code",
+              "expr": "label_replace(leader_election_master_status{name=~\"kube-controller-manager\"} == 1, \"host_ip\", \"$1\", \"instance\", \"([^:]+):.*\")\n* on (host_ip) group_left(node)\n  max by (host_ip, node) (kube_pod_info{namespace=\"kube-system\", pod=~\"kube-controller-manager-.*\"})",
+              "legendFormat": "{{node}}",
+              "range": true,
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
+            }
+          ],
+          "title": "Kube Controller Leader",
+          "type": "state-timeline"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 0,
+            "y": 239
+          },
+          "id": 238,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "auto",
+            "wideLayout": true
+          },
+          "pluginVersion": "12.4.11",
+          "targets": [
+            {
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "sum by (name) (changes(leader_election_master_status{name=~\"kube-scheduler\"}[$__range])) / 2",
+              "instant": true,
+              "legendFormat": "{{node}}",
+              "range": false,
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
+            }
+          ],
+          "title": "Kube Scheduler Leader Changes",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "text",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 3,
+            "x": 3,
+            "y": 239
+          },
+          "id": 233,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "percentChangeColorMode": "standard",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "name",
+            "wideLayout": true
+          },
+          "pluginVersion": "12.4.11",
+          "targets": [
+            {
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "label_replace(leader_election_master_status{name=~\"kube-scheduler\"} == 1, \"host_ip\", \"$1\", \"instance\", \"([^:]+):.*\")\n* on (host_ip) group_left(node)\n  max by (host_ip, node) (kube_pod_info{namespace=\"kube-system\", pod=~\"etcd-.*\"})",
+              "instant": true,
+              "legendFormat": "{{node}}",
+              "range": false,
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
+            }
+          ],
+          "title": "Current Kube Scheduler Leader",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "${DS_PROMETHEUS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "fixed"
+              },
+              "custom": {
+                "axisPlacement": "auto",
+                "fillOpacity": 70,
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineWidth": 0,
+                "spanNulls": false
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "color": "transparent",
+                      "index": 0,
+                      "text": "Follower"
+                    },
+                    "1": {
+                      "color": "green",
+                      "index": 1,
+                      "text": "Leader"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": 0
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 18,
+            "x": 6,
+            "y": 239
+          },
+          "id": 236,
+          "options": {
+            "alignValue": "left",
+            "legend": {
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": false
+            },
+            "mergeValues": true,
+            "rowHeight": 0.8,
+            "showValue": "never",
+            "tooltip": {
+              "hideZeros": false,
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "12.4.11",
+          "targets": [
+            {
+              "editorMode": "code",
+              "expr": "label_replace(leader_election_master_status{name=~\"kube-scheduler\"} == 1, \"host_ip\", \"$1\", \"instance\", \"([^:]+):.*\")\n* on (host_ip) group_left(node)\n  max by (host_ip, node) (kube_pod_info{namespace=\"kube-system\", pod=~\"kube-scheduler-.+\"})",
+              "legendFormat": "{{node}}",
+              "range": true,
+              "refId": "A",
+              "datasource": {
+                "type": "prometheus",
+                "uid": "${DS_PROMETHEUS}"
+              }
+            }
+          ],
+          "title": "Kube Scheduler Leader",
+          "type": "state-timeline"
+        }
+      ],
+      "title": "Control Plane",
       "type": "row"
     }
   ],
@@ -12353,23 +13630,10 @@
     "from": "now-6h",
     "to": "now"
   },
-  "timepicker": {
-    "refresh_intervals": [
-      "5s",
-      "10s",
-      "30s",
-      "1m",
-      "5m",
-      "15m",
-      "30m",
-      "1h",
-      "2h",
-      "1d"
-    ]
-  },
+  "timepicker": {},
   "timezone": "browser",
   "title": "Standard Cluster Monitoring",
   "uid": "ozk-std-clstr-mon",
-  "version": 113,
+  "version": 114,
   "weekStart": ""
 }
