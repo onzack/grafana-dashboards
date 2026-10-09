@@ -13007,7 +13007,7 @@
           "targets": [
             {
               "editorMode": "code",
-              "expr": "label_replace(etcd_server_is_leader == 1, \"host_ip\", \"$1\", \"instance\", \"([^:]+):.*\")\n* on (host_ip) group_left(node)\n  max by (host_ip, node) (kube_pod_info{namespace=\"kube-system\", pod=~\"etcd-.*\"})",
+              "expr": "label_replace(etcd_server_is_leader, \"host_ip\", \"$1\", \"instance\", \"([^:]+):.*\")\n* on (host_ip) group_left(node)\n  max by (host_ip, node) (kube_pod_info{namespace=\"kube-system\", pod=~\"etcd-.*\"})",
               "legendFormat": "{{node}}",
               "range": true,
               "refId": "A",
@@ -13242,7 +13242,7 @@
           "targets": [
             {
               "editorMode": "code",
-              "expr": "label_replace(leader_election_master_status{name=~\"kube-controller-manager\"} == 1, \"host_ip\", \"$1\", \"instance\", \"([^:]+):.*\")\n* on (host_ip) group_left(node)\n  max by (host_ip, node) (kube_pod_info{namespace=\"kube-system\", pod=~\"kube-controller-manager-.*\"})",
+              "expr": "label_replace(leader_election_master_status{name=~\"kube-controller-manager\"}, \"host_ip\", \"$1\", \"instance\", \"([^:]+):.*\")\n* on (host_ip) group_left(node)\n  max by (host_ip, node) (kube_pod_info{namespace=\"kube-system\", pod=~\"kube-controller-manager-.*\"})",
               "legendFormat": "{{node}}",
               "range": true,
               "refId": "A",
@@ -13477,7 +13477,7 @@
           "targets": [
             {
               "editorMode": "code",
-              "expr": "label_replace(leader_election_master_status{name=~\"kube-scheduler\"} == 1, \"host_ip\", \"$1\", \"instance\", \"([^:]+):.*\")\n* on (host_ip) group_left(node)\n  max by (host_ip, node) (kube_pod_info{namespace=\"kube-system\", pod=~\"kube-scheduler-.+\"})",
+              "expr": "label_replace(leader_election_master_status{name=~\"kube-scheduler\"}, \"host_ip\", \"$1\", \"instance\", \"([^:]+):.*\")\n* on (host_ip) group_left(node)\n  max by (host_ip, node) (kube_pod_info{namespace=\"kube-system\", pod=~\"kube-scheduler-.+\"})",
               "legendFormat": "{{node}}",
               "range": true,
               "refId": "A",
